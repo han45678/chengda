@@ -21,7 +21,7 @@
 </template>
 
 <style lang="scss" scoped>
-// @import '@/assets/style/function.scss'; // 假設暫時用不到
+@import '@/assets/style/function.scss'; // 假設暫時用不到
 
 .s3 {
   position: relative;
