@@ -43,7 +43,7 @@
         /><img src="@/section/s1/bg.jpg" />
       </div>
       <S1 />
-      <!-- <S2 /> -->
+      <S2 />
     </div>
     <S3 />
     <!--

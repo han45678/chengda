@@ -3,9 +3,6 @@
     class="s1 relative"
     id="s1"
   >
-    <!--  <img src="./s1/1.jpg" class="t0">
-      <img src="./s1/mo.jpg" class="t0">
-      <img src="./s1/0.jpg" class="t0">  -->
     <img
       src="./s1/logo.svg"
       class="t1"
