@@ -1,3 +1,4 @@
+
 <template>
   <article
     class="s2 relative"
@@ -16,7 +17,8 @@
       頂尖學府成大、南一中雙明星學區文風加持；匯集遠百、新光三越7大商圈、4大夜市旗艦級繁華商圈。
     </p>
 
-    <img class="s2_bg" src="./s2/pic.png" alt="pic">
+    <img class="s2_bg" src="@/section/s2/pic.png" alt="pic">
+    <fullview :bg="'@/section/s2/pic.pn'" />
     <!-- <img src="./s2/logo.svg" class="logo" data-aos="zoom-out" data-aos-delay="0">
       <img src="./s2/t1.svg" class="t1" data-aos="zoom-out" data-aos-delay="0">
       <div class="img" data-aos="zoom-out" data-aos-delay="0"  data-aos-offset="-500"><img src="./s2/img.png"></div> -->
@@ -64,6 +66,7 @@
 }
 </style>
 <script setup>
+   import fullview from '@/components/fullview.vue';
 import { computed, getCurrentInstance, ref, inject } from 'vue';
 const globals = getCurrentInstance().appContext.config.globalProperties;
 

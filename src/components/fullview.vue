@@ -1,6 +1,6 @@
 <template>
     <div class="viewbox" ref="viewbox">
-        <img ref="viewImg" src="@/section/s2/map.jpg" alt="" srcset="">
+        <img ref="viewImg" :src="props.imgSrc" alt="bg" srcset="bg">
         <div class="mask" v-bind:class="{ hide: swiped }" v-if="$isMobile()">
             <img src="@/components/fullview/finger.png" alt="" srcset="">
         </div>
@@ -61,8 +61,16 @@
 }
 </style>
 <script setup>
+  
 import BScroll from '@better-scroll/core';
-import { onMounted, ref, computed, getCurrentInstance } from 'vue';
+import { onMounted, ref, computed, getCurrentInstance,defineProps } from 'vue';
+
+const props = defineProps({
+  imgSrc: {
+    type: String,
+    required: true
+  }
+});
 
 const viewbox = ref();
 const viewImg = ref();
