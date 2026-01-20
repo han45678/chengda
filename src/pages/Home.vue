@@ -26,7 +26,7 @@
   >
     <h1 class="absolute opacity-0 pointer-events-none">{{ info.caseName }}</h1>
     <div class="bgs12">
-      <div 
+      <div
         class="bg"
         v-if="isMobile"
       >
@@ -45,9 +45,12 @@
       <S1 />
       <S2 />
     </div>
+
     <S3 />
-    <S4 />
-    <S5 />
+    <div class="s3_s4_bg">
+      <S4 />
+      <S5 />
+    </div>
     <S6 />
     <S7 />
     <!--
@@ -59,6 +62,20 @@
 
 <style lang="scss">
 @import '@/assets/style/function.scss';
+
+.s3_s4_bg {
+  /* CSS Loader 看得懂這裡的 @，會自動幫你轉成正確的路徑 */
+  background: url('@/section/s4/bg.jpg');
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  /* 記得確保容器有高度 */
+  width: 100%;
+
+  position: relative;
+  z-index: 1;
+}
 
 @keyframes an {
   to {

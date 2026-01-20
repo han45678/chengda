@@ -1,42 +1,18 @@
 <script setup>
-import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-
-// --- 修改這一段 ---
-import { Pagination, Autoplay } from 'swiper'; 
-// ----------------
+import { Pagination, Autoplay } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// modules 變數不用變
 const modules = [Pagination, Autoplay];
-
-// 模擬資料 (圖片請替換成實際路徑)
-const features = ref([
-  {
-    id: 1,
-    title: '台南火車站',
-    img: 'https://images.unsplash.com/photo-1535535112387-56ffe8db21ff?q=80&w=600&auto=format&fit=crop', // 示意圖
-    textPos: 'top' // 控制文字在圖片上方
-  },
-  {
-    id: 2,
-    title: '北外環道路',
-    img: 'https://images.unsplash.com/photo-1465447142348-e9952c393450?q=80&w=600&auto=format&fit=crop', // 示意圖
-    textPos: 'bottom' // 控制文字在圖片下方
-  },
-  {
-    id: 3,
-    title: '國道1號',
-    img: 'https://images.unsplash.com/photo-1473186505569-9c61870c11f9?q=80&w=600&auto=format&fit=crop', // 示意圖
-    textPos: 'top' // 控制文字在圖片上方
-  }
-]);
 </script>
 
 <template>
-  <article class="s4" id="s4">
+  <article
+    class="s4"
+    id="s4"
+  >
     <div class="container">
       <div class="header-group">
         <div class="main-titles">
@@ -44,7 +20,9 @@ const features = ref([
           <h3>台南車站+捷運綠線+北外環</h3>
         </div>
         <div class="desc-text">
-          <p>位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。</p>
+          <p>
+            位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
+          </p>
         </div>
       </div>
 
@@ -60,38 +38,70 @@ const features = ref([
               slidesPerView: 3,
               spaceBetween: 30,
               centeredSlides: false,
-              allowTouchMove: false, // 電腦版禁止拖曳，變成靜態佈局
+              allowTouchMove: false
             }
           }"
           class="my-swiper"
         >
-          <swiper-slide v-for="item in features" :key="item.id">
-            <div class="card" :class="`text-${item.textPos}`">
-              <h4 class="card-title">{{ item.title }}</h4>
+          <swiper-slide>
+            <div class="card text-top">
+              <h4 class="card-title">台南火車站</h4>
               <div class="img-box">
-                <img :src="item.img" :alt="item.title" />
+                <img
+                  src="./s4/pic01.jpg"
+                  alt="台南火車站"
+                />
                 <span class="img-label">實景圖</span>
               </div>
             </div>
           </swiper-slide>
+
+          <swiper-slide>
+            <div class="card text-bottom">
+              <h4 class="card-title">北外環道路</h4>
+              <div class="img-box">
+                <img
+                  src="./s4/pic02.jpg"
+                  alt="北外環道路"
+                />
+                <span class="img-label">實景圖</span>
+              </div>
+            </div>
+          </swiper-slide>
+
+          <swiper-slide>
+            <div class="card text-top">
+              <h4 class="card-title">國道1號</h4>
+              <div class="img-box">
+                <img
+                  src="./s4/pic03.jpg"
+                  alt="國道1號"
+                />
+                <span class="img-label">實景圖</span>
+              </div>
+            </div>
+          </swiper-slide>
+
         </swiper>
       </div>
     </div>
-    
+
     <div class="deco-leaf"></div>
   </article>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/style/function.scss';
+
 // 變數設定
 $color-gold: #cfa972;
 $color-white: #ffffff;
 $color-bg-start: #00264d; // 深藍漸層起始
-$color-bg-end: #004080;   // 深藍漸層結束
+$color-bg-end: #004080; // 深藍漸層結束
 
 .s4 {
   width: 100%;
-  background: linear-gradient(135deg, $color-bg-start, $color-bg-end);
+  // background: linear-gradient(135deg, $color-bg-start, $color-bg-end);
   position: relative;
   overflow: hidden;
   padding: 60px 0;
@@ -132,7 +142,7 @@ $color-bg-end: #004080;   // 深藍漸層結束
       margin-bottom: 10px;
       letter-spacing: 2px;
       font-weight: bold;
-      
+
       @media (min-width: 768px) {
         font-size: 32px;
       }
@@ -142,7 +152,7 @@ $color-bg-end: #004080;   // 深藍漸層結束
       font-size: 18px;
       font-weight: normal;
       letter-spacing: 1px;
-      
+
       @media (min-width: 768px) {
         font-size: 24px;
       }
@@ -153,11 +163,11 @@ $color-bg-end: #004080;   // 深藍漸層結束
     font-size: 14px;
     line-height: 1.6;
     opacity: 0.9;
-    
+
     @media (min-width: 768px) {
       width: 50%;
       padding-left: 30px;
-      border-left: 1px solid rgba(255,255,255,0.3); // 中間的分隔線
+      border-left: 1px solid rgba(255, 255, 255, 0.3); // 中間的分隔線
     }
   }
 }
@@ -171,15 +181,19 @@ $color-bg-end: #004080;   // 深藍漸層結束
   display: flex;
   flex-direction: column;
   position: relative;
-  
+
   // 圖片容器
   .img-box {
     width: 100%;
     aspect-ratio: 4/3; // 保持圖片比例
     overflow: hidden;
     position: relative;
-    border-radius: 4px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    // border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+    @media (min-width: 768px) {
+      height: size(220);
+    }
 
     img {
       width: 100%;
@@ -187,14 +201,14 @@ $color-bg-end: #004080;   // 深藍漸層結束
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-    
+
     // "實景圖" 標籤
     .img-label {
       position: absolute;
       bottom: 5px;
       right: 10px;
       font-size: 12px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
   }
 
@@ -213,6 +227,13 @@ $color-bg-end: #004080;   // 深藍漸層結束
   // 處理 "文字在上" 的樣式
   &.text-top {
     flex-direction: column; // 預設順序：標題 -> 圖片
+
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
     .card-title {
       margin-bottom: 15px;
       margin-top: 0;
@@ -222,6 +243,12 @@ $color-bg-end: #004080;   // 深藍漸層結束
   // 處理 "文字在下" 的樣式
   &.text-bottom {
     flex-direction: column-reverse; // 反轉順序：圖片 -> 標題
+
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
     .card-title {
       margin-top: 15px;
       margin-bottom: 0;

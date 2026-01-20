@@ -3,6 +3,7 @@
     class="s2 relative"
     id="s2"
   >
+
     <img
       src="./s2/t1.svg"
       class="t1"
@@ -15,7 +16,7 @@
       頂尖學府成大、南一中雙明星學區文風加持；匯集遠百、新光三越7大商圈、4大夜市旗艦級繁華商圈。
     </p>
 
-    <img src="./s2/pic.png" alt="pic">
+    <img class="s2_bg" src="./s2/pic.png" alt="pic">
     <!-- <img src="./s2/logo.svg" class="logo" data-aos="zoom-out" data-aos-delay="0">
       <img src="./s2/t1.svg" class="t1" data-aos="zoom-out" data-aos-delay="0">
       <div class="img" data-aos="zoom-out" data-aos-delay="0"  data-aos-offset="-500"><img src="./s2/img.png"></div> -->
@@ -52,6 +53,12 @@
       width: size(900);
       font-size: size(18);
       padding-bottom: size(0);
+    }
+  }
+
+  .s2_bg{
+    @media screen and (min-width: 768px) {
+      width: 100%;
     }
   }
 }

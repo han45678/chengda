@@ -4,11 +4,12 @@
     id="s3"
   >
     <div class="text">
-      <img
-        class="pic"
-        src="./s3/pic.jpg"
-        alt="pic"
-      />
+      <div class="pic">
+        <img
+          src="./s3/pic.jpg"
+          alt="pic"
+        />
+      </div>
       <img
         src="./s3/t1.svg"
         alt="title"
@@ -38,16 +39,24 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/style/function.scss'; // 假設暫時用不到
+@import '@/assets/style/function.scss';
 
 .s3 {
   position: relative;
   width: 100%;
-  // height: 100vh; // 設定高度為視窗高度
   overflow: hidden;
-  font-family: 'Noto Sans TC', sans-serif; // 建議使用無襯線字體
 
-  // 1. 背景圖層設定 (絕對定位，置底)
+  // --- 手機版優先 (Base) ---
+  height: auto;
+  min-height: 100vh;
+
+  // --- 電腦版 (Desktop) ---
+  @media (min-width: 769px) {
+    height: auto; // 或依需求改為 100%
+    min-height: auto; // 重置最小高度，依內容撐開
+  }
+
+  // 1. 背景圖層設定 (無須更動，共用)
   .bg-img {
     position: absolute;
     top: 0;
@@ -55,143 +64,174 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center bottom; // 重點在下方建築
+    object-position: center bottom;
     z-index: 1;
   }
 
-  // 2. 文字內容層 (相對定位，置頂)
+  // 2. 文字內容層
   .text {
     position: relative;
-    z-index: 2; // 在背景之上
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%; // 佔滿高度以應用漸層
-    padding-top: size(184); // 標題距離頂部的空間
-    padding-bottom: size(780);
+    height: 100%;
 
-    // **關鍵修改：加入白色半透明漸層背景**
+    // --- 手機版優先 (Base) ---
+    padding-top: sizem(100);
+    padding-bottom: sizem(50);
+    // 手機版背景 (底部較深)
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 1) 0%,
-      // 頂部純白
-      rgba(255, 255, 255, 0.8) 50%,
-      // 中間半透明
-      rgba(255, 255, 255, 0) 100% // 底部透明
+      rgba(255, 255, 255, 0.5) 100%
     );
+
+    // --- 電腦版 (Desktop) ---
+    @media (min-width: 769px) {
+      padding-top: size(184);
+      padding-bottom: size(780);
+      // 電腦版背景 (底部全透明)
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
 
     // 標題 SVG
     > img[alt='title'] {
       width: auto;
-      height: 60px; // 依實際 SVG 調整
-      margin-bottom: 40px;
+      
+      // --- 手機版優先 (Base) ---
+      height: sizem(40);
+      margin-bottom: sizem(30);
+
+      // --- 電腦版 (Desktop) ---
+      @media (min-width: 769px) {
+        height: size(60);
+        margin-top: size(55);
+        margin-bottom: size(40);
+      }
     }
 
     // 段落樣式
     p {
-      color: #4a4a4a; // 深灰色，非純黑
-      font-size: 15px;
-      line-height: 2.2; // 更寬鬆的行高
-      letter-spacing: 2px; // 更寬的字距
       text-align: center;
-      max-width: 700px; // 限制文字寬度
-      margin-bottom: 20px;
-      font-weight: 400;
-      padding: 0 20px;
+      font-weight: 500;
+      color: #262626;
+
+      // --- 手機版優先 (Base) ---
+      font-size: sizem(14);
+      line-height: 1.8;
+      max-width: 100%;
+      margin-bottom: sizem(20);
+      padding: 0 sizem(20);
+      letter-spacing: sizem(2); // 假設手機版也需要字距，若不用可設為 normal
+
+      // --- 電腦版 (Desktop) ---
+      @media (min-width: 769px) {
+        font-size: size(18);
+        line-height: 1.6;
+        max-width: size(750);
+        margin-bottom: size(20);
+        padding: 0 size(20);
+        letter-spacing: size(1.26);
+      }
 
       // 3. 垂直分隔線
       &:first-of-type {
         position: relative;
-        margin-top: 40px; // 與標題的距離
+        
+        // --- 手機版優先 (Base) ---
+        margin-top: sizem(30);
 
         &::before {
           content: '';
           position: absolute;
-          top: -40px; // 往上推
           left: 50%;
           transform: translateX(-50%);
-          width: 1px;
-          height: 20px;
-          background-color: #a0a0a0; // 淺灰色線條
+          background-color: #a0a0a0;
+          
+          // Mobile
+          top: sizem(-30);
+          width: sizem(1);
+          height: sizem(15);
+        }
+
+        // --- 電腦版 (Desktop) ---
+        @media (min-width: 769px) {
+          margin-top: size(80);
+
+          &::before {
+            top: size(-80);
+            width: size(1);
+            height: size(40);
+          }
         }
       }
 
       // 最後一段強調文字
       &:last-child {
         font-weight: 500;
-        color: #222; // 稍微深一點
-        margin-top: 10px;
-      }
-    }
-  }
+        color: #222;
+        
+        // --- 手機版優先 (Base) ---
+        margin-top: sizem(10);
 
-  // 3. 右下角 Caption (絕對定位)
-  .caption {
-    position: absolute;
-    bottom: 40px;
-    right: 50px;
-    z-index: 3;
-    text-align: right;
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-    font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); // 增加陰影提高可讀性
-
-    span {
-      display: block;
-      font-size: 12px;
-      margin-top: 8px;
-      font-weight: 400;
-      opacity: 0.9;
-    }
-  }
-}
-
-// RWD 調整 (Mobile)
-@media (max-width: 768px) {
-  .s3 {
-    height: auto; // 手機版高度自動
-    min-height: 100vh;
-
-    .text {
-      padding-top: 100px;
-      padding-bottom: 50px;
-      // 手機版漸層可以調整或移除
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.5) 100%
-      );
-
-      > img[alt='title'] {
-        height: 40px;
-        margin-bottom: 30px;
-      }
-      p {
-        font-size: 14px;
-        line-height: 1.8;
-        max-width: 100%;
-
-        &:first-of-type {
-          margin-top: 30px;
-          &::before {
-            top: -30px;
-            height: 15px;
-          }
+        // --- 電腦版 (Desktop) ---
+        @media (min-width: 769px) {
+          margin-top: size(10);
         }
       }
     }
+  }
 
-    .caption {
-      position: relative; // 手機版改為相對定位，避免擋住內容
-      bottom: auto;
-      right: auto;
-      padding: 20px;
-      text-align: center;
-      color: #666; // 手機版背景可能較白，改用深色字
-      text-shadow: none;
+  // 3. 右下角 Caption
+  .caption {
+    z-index: 3;
+    font-weight: 500;
+    
+    // --- 手機版優先 (Base) ---
+    // 手機版是相對定位，在內容下方
+    position: relative;
+    bottom: auto;
+    right: auto;
+    padding: sizem(20);
+    text-align: center;
+    color: #666;
+    text-shadow: none;
+    font-size: sizem(14);
+    letter-spacing: sizem(1.5);
+
+    span {
+      display: block;
+      font-weight: 400;
+      opacity: 0.9;
+      // Mobile
+      font-size: sizem(12);
+      margin-top: sizem(8);
+    }
+
+    // --- 電腦版 (Desktop) ---
+    @media (min-width: 769px) {
+      // 電腦版改為絕對定位，壓在背景上
+      position: absolute;
+      bottom: size(40);
+      right: size(50);
+      padding: 0; // 重置 padding
+      text-align: right;
+      color: #fff;
+      text-shadow: size(1) size(1) size(3) rgba(0, 0, 0, 0.5);
+      font-size: size(14);
+      letter-spacing: size(1.5);
+
+      span {
+        font-size: size(12);
+        margin-top: size(8);
+      }
     }
   }
 }

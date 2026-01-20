@@ -1,13 +1,5 @@
 <script setup>
-import { ref } from 'vue';
-
-// 圖片路徑 (請替換為實際專案路徑)
-const images = {
-  shinkong: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=800',
-  tsmall: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=800',
-  shangrila: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=800',
-  garden: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&q=80&w=800'
-};
+// 移除 images 物件，直接在 template 使用靜態路徑
 </script>
 
 <template>
@@ -26,7 +18,7 @@ const images = {
 
       <div class="box-img item-1">
         <div class="img-wrap">
-          <img :src="images.shinkong" alt="新光三越小北門店">
+          <img src="./s5/pic01.jpg" alt="新光三越小北門店">
         </div>
         <div class="caption">
           <span class="bar"></span>新光三越小北門店
@@ -35,7 +27,7 @@ const images = {
 
       <div class="box-img item-2">
         <div class="img-wrap">
-          <img :src="images.tsmall" alt="南紡購物中心">
+          <img src="./s5/pic02.jpg" alt="南紡購物中心">
         </div>
         <div class="caption">
           <span class="bar"></span>南紡購物中心
@@ -44,7 +36,7 @@ const images = {
 
       <div class="box-img item-3">
         <div class="img-wrap">
-          <img :src="images.shangrila" alt="台南香格里拉&大遠百">
+          <img src="./s5/pic03.jpg" alt="台南香格里拉&大遠百">
         </div>
         <div class="caption">
           <span class="bar"></span>台南香格里拉&大遠百
@@ -53,7 +45,7 @@ const images = {
 
       <div class="box-img item-4">
         <div class="img-wrap">
-          <img :src="images.garden" alt="花園夜市">
+          <img src="./s5/pic04.jpg" alt="花園夜市">
         </div>
         <div class="caption">
           <span class="bar"></span>花園夜市
@@ -74,7 +66,7 @@ $color-white: #ffffff;
 $color-bar: #3baee3;
 
 .s5 {
-  background-color: $color-bg;
+  // background-color: $color-bg;
   // 手機版使用 sizem
   padding: sizem(40) sizem(20);
   color: $color-white;
@@ -242,12 +234,12 @@ $color-bar: #3baee3;
       background: linear-gradient(90deg, transparent, $color-bar);
       
       // 手機版 Bar
-      width: sizem(40);
+      width: sizem(0);
       margin-right: sizem(10);
       
       // 電腦版 Bar
       @media (min-width: 768px) {
-        width: size(40);
+        width: size(80);
         margin-right: size(10);
       }
     }
