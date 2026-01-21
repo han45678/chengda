@@ -38,6 +38,7 @@
 .s1 {
   width: 100%;
   position: relative;
+  height: 120dvh;
   @media screen and (min-width: 768px) {
     height: size(1680);
   }
@@ -48,6 +49,8 @@
     right: 0;
     margin: auto;
     z-index: 1;
+    width: sizem(240);
+    top: sizem(200);
     @media screen and (min-width: 768px) {
       width: size(600);
       top: size(280);
@@ -59,6 +62,8 @@
     right: 0;
     margin: auto;
     z-index: 1;
+    width: sizem(240);
+      top: sizem(395);
     @media screen and (min-width: 768px) {
       width: size(545);
       top: size(880);
@@ -70,6 +75,8 @@
     right: 0;
     margin: auto;
     z-index: 1;
+    width: sizem(240);
+      top: 110dvb;
     @media screen and (min-width: 768px) {
       width: size(620);
       top: size(1450);
@@ -81,6 +88,8 @@
     right: 0;
     margin: auto;
     z-index: 1;
+    width: sizem(340);
+      top: 115dvh;
     @media screen and (min-width: 768px) {
       width: size(1520);
       top: size(1520);
@@ -96,6 +105,7 @@
 
     background: linear-gradient(to top, #0b2a49 0%, rgba(45, 156, 215, 0) 100%);
     pointer-events: none;
+    height: sizem(400);
     @media screen and (min-width: 768px) {
       height: size(550);
     }

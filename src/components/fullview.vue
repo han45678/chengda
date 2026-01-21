@@ -1,6 +1,6 @@
 <template>
     <div class="viewbox" ref="viewbox">
-        <img ref="viewImg" :src="props.imgSrc" alt="bg" srcset="bg">
+        <img ref="viewImg" src="@/section/s2/pic.png" alt="pic" srcset="">
         <div class="mask" v-bind:class="{ hide: swiped }" v-if="$isMobile()">
             <img src="@/components/fullview/finger.png" alt="" srcset="">
         </div>
@@ -14,13 +14,13 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background: #eee;
+    // background: #eee;
 
     > img {
         height: 100%;
         max-width: unset;
-    //    background:url("@/section/s3/view.jpg") 50%;
-    //    background-size: 100% auto;
+        background:url("@/section/s3/map.webp") 50%;
+        background-size: 100% auto;
     }
 
 }
@@ -61,21 +61,13 @@
 }
 </style>
 <script setup>
-  
 import BScroll from '@better-scroll/core';
-import { onMounted, ref, computed, getCurrentInstance,defineProps } from 'vue';
-
-const props = defineProps({
-  imgSrc: {
-    type: String,
-    required: true
-  }
-});
+import { onMounted, ref, computed, getCurrentInstance } from 'vue';
 
 const viewbox = ref();
 const viewImg = ref();
 const swiped = ref(false);
-const offsetRatio = 2.57; 
+const offsetRatio = 1.67; 
 
 const globals = getCurrentInstance().appContext.config.globalProperties;
 const isMobile = computed(() => globals.$isMobile());

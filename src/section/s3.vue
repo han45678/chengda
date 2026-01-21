@@ -25,16 +25,18 @@
       </p>
     </div>
 
-    <img
-      src="./s3/bg.jpg"
-      alt="bg"
-      class="bg-img"
-    />
+    <div class="bg-img-wrapper">
+      <img
+        src="./s3/bg.jpg"
+        alt="bg"
+        class="bg-img"
+      />
+    </div>
 
-    <div class="caption">
+    <!-- <div class="caption">
       台南車站3D情境示意圖
       <span>圖/臺南市政府都市發展局</span>
-    </div>
+    </div> -->
   </article>
 </template>
 
@@ -45,6 +47,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: #fff;
 
   // --- 手機版優先 (Base) ---
   height: auto;
@@ -57,15 +60,38 @@
   }
 
   // 1. 背景圖層設定 (無須更動，共用)
-  .bg-img {
+  .bg-img-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+
     height: 100%;
-    object-fit: cover;
-    object-position: center bottom;
     z-index: 1;
+    .bg-img {
+      width: 100%;
+      height: auto;
+      @media (max-width: 768px) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      @media (min-width: 769px) {
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+
+  .pic {
+    width: sizem(240);
+    @media (min-width: 769px) {
+      width: size(480);
+    }
+    img {
+      width: 100%;
+    }
   }
 
   // 2. 文字內容層
@@ -79,8 +105,8 @@
     height: 100%;
 
     // --- 手機版優先 (Base) ---
-    padding-top: sizem(100);
-    padding-bottom: sizem(50);
+    padding-top: sizem(60);
+    padding-bottom: sizem(200);
     // 手機版背景 (底部較深)
     background: linear-gradient(
       to bottom,
@@ -104,11 +130,12 @@
     // 標題 SVG
     > img[alt='title'] {
       width: auto;
-      
+
       // --- 手機版優先 (Base) ---
       height: sizem(40);
       margin-bottom: sizem(30);
-
+      height: sizem(25);
+      margin-top: sizem(30);
       // --- 電腦版 (Desktop) ---
       @media (min-width: 769px) {
         height: size(60);
@@ -126,9 +153,8 @@
       // --- 手機版優先 (Base) ---
       font-size: sizem(14);
       line-height: 1.8;
-      max-width: 100%;
-      margin-bottom: sizem(20);
-      padding: 0 sizem(20);
+      margin-bottom: sizem(13);
+      width: sizem(300);
       letter-spacing: sizem(2); // 假設手機版也需要字距，若不用可設為 normal
 
       // --- 電腦版 (Desktop) ---
@@ -144,7 +170,7 @@
       // 3. 垂直分隔線
       &:first-of-type {
         position: relative;
-        
+
         // --- 手機版優先 (Base) ---
         margin-top: sizem(30);
 
@@ -154,7 +180,7 @@
           left: 50%;
           transform: translateX(-50%);
           background-color: #a0a0a0;
-          
+
           // Mobile
           top: sizem(-30);
           width: sizem(1);
@@ -177,7 +203,7 @@
       &:last-child {
         font-weight: 500;
         color: #222;
-        
+
         // --- 手機版優先 (Base) ---
         margin-top: sizem(10);
 
@@ -187,13 +213,29 @@
         }
       }
     }
+    @media (max-width: 768px) {
+      &::before {
+        content: '';
+        background: linear-gradient(
+          to bottom,
+          rgb(255, 255, 255) 0%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        width: 100%;
+        height: sizem(100);
+        position: absolute;
+        bottom: sizem(120);
+        left: 0;
+      }
+    }
   }
 
   // 3. 右下角 Caption
   .caption {
     z-index: 3;
     font-weight: 500;
-    
+
     // --- 手機版優先 (Base) ---
     // 手機版是相對定位，在內容下方
     position: relative;

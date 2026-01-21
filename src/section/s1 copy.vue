@@ -42,7 +42,7 @@
   line-height: 1.3;
  // overflow: hidden;
   
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
     height:100vh;
     // height: size(1070);
     min-height: size(1080);
@@ -57,7 +57,7 @@
   transform-origin: 50% 100%;
   animation: an 5s linear alternate infinite;
   filter:drop-shadow(0 0 .3vw #fff);
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     bottom: calc(20% + #{size(0 - 1080 * .2)});
     left:calc(50% - #{size(2280 * .5)});
     width: size(2280); 
@@ -69,14 +69,14 @@
 }
 .t2{width: 8.5em;margin: 0 auto 1em;position: relative;z-index: 5;
 
-  @media screen and (min-width: 768px) {margin: 0 auto 2.3em;}
+  @media screen and (min-width: 769px) {margin: 0 auto 2.3em;}
 }
 
   .bg{position: absolute;
     top:0;left:0;
     height: 100%; transform: translateX(calc(-100% + 100vw));
     animation: an 20s linear alternate infinite;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 769px) {
       height: auto;width:size(2300);top:calc(50% + #{size(0 - 1080 * .5)});
     }
   }
