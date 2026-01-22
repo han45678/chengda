@@ -65,7 +65,7 @@
 
 .s3_s4_bg {
   /* CSS Loader 看得懂這裡的 @，會自動幫你轉成正確的路徑 */
-  background: url('@/section/s4/bg.jpg');
+  background: url('@/section/s4/bg.webp');
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;

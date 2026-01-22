@@ -13,266 +13,283 @@ const modules = [Pagination, Autoplay];
     class="s4"
     id="s4"
   >
-    <div class="container">
-      <div class="header-group">
-        <div class="main-titles">
-          <h2>台南最強複合式交通捷境</h2>
-          <h3>台南車站+捷運綠線+北外環</h3>
-        </div>
-        <div class="desc-text">
-          <p>
-            位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
-          </p>
-        </div>
+    <div class="header-group">
+      <div class="main-titles">
+        <img
+          class="title"
+          src="./s4/title.svg"
+          alt="title"
+        />
+        <h3>台南車站+捷運綠線+北外環</h3>
       </div>
-
-      <div class="slider-container">
-        <swiper
-          :modules="modules"
-          :slides-per-view="1.2"
-          :space-between="20"
-          :centered-slides="true"
-          :loop="false"
-          :breakpoints="{
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 30,
-              centeredSlides: false,
-              allowTouchMove: false
-            }
-          }"
-          class="my-swiper"
-        >
-          <swiper-slide>
-            <div class="card text-top">
-              <h4 class="card-title">台南火車站</h4>
-              <div class="img-box">
-                <img
-                  src="./s4/pic01.jpg"
-                  alt="台南火車站"
-                />
-                <span class="img-label">實景圖</span>
-              </div>
-            </div>
-          </swiper-slide>
-
-          <swiper-slide>
-            <div class="card text-bottom">
-              <h4 class="card-title">北外環道路</h4>
-              <div class="img-box">
-                <img
-                  src="./s4/pic02.jpg"
-                  alt="北外環道路"
-                />
-                <span class="img-label">實景圖</span>
-              </div>
-            </div>
-          </swiper-slide>
-
-          <swiper-slide>
-            <div class="card text-top">
-              <h4 class="card-title">國道1號</h4>
-              <div class="img-box">
-                <img
-                  src="./s4/pic03.jpg"
-                  alt="國道1號"
-                />
-                <span class="img-label">實景圖</span>
-              </div>
-            </div>
-          </swiper-slide>
-
-        </swiper>
+      <div class="desc-text">
+        <p>
+          位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
+        </p>
       </div>
     </div>
+    <div class="slider-container">
+      <swiper
+        :modules="modules"
+        :slides-per-view="1.2"
+        :space-between="20"
+        :centered-slides="true"
+        :loop="false"
+        :breakpoints="{
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: false,
+            allowTouchMove: false
+          }
+        }"
+        class="swiper"
+      >
+        <swiper-slide>
+          <div class="swiper_item">
+            <div class="swiper_item_title">台南火車站</div>
+            <div class="swiper_item_img">
+              <img
+                src="./s4/pic01.webp"
+                alt="slide1"
+              />
+              <p>實景圖</p>
+            </div>
+          </div>
+        </swiper-slide>
 
-    <div class="deco-leaf"></div>
+        <swiper-slide>
+          <div class="swiper_item">
+            <div class="swiper_item_img bottom">
+              <img
+                src="./s4/pic02.webp"
+                alt="slide1"
+              />
+              <p>實景圖</p>
+            </div>
+            <div class="swiper_item_title bottom">北環道路</div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide>
+          <div class="swiper_item">
+            <div class="swiper_item_title">國道1號</div>
+            <div class="swiper_item_img">
+              <img
+                src="./s4/pic03.webp"
+                alt="slide1"
+              />
+              <p>實景圖</p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
   </article>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/style/function.scss';
 
-// 變數設定
-$color-gold: #cfa972;
-$color-white: #ffffff;
-$color-bg-start: #00264d; // 深藍漸層起始
-$color-bg-end: #004080; // 深藍漸層結束
-
 .s4 {
-  width: 100%;
-  // background: linear-gradient(135deg, $color-bg-start, $color-bg-end);
-  position: relative;
-  overflow: hidden;
-  padding: 60px 0;
-  color: $color-white;
-
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-// 標題區域樣式
-.header-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-  position: relative;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+  padding-top: sizem(70);
+  padding-bottom: size(60);
+  @media (min-width: 769px) {
+    padding-top: size(200);
+    padding-bottom: size(220);
   }
 
-  .main-titles {
-    margin-bottom: 20px;
-    @media (min-width: 768px) {
-      width: 50%;
-      margin-bottom: 0;
-      text-align: right;
-      padding-right: 30px;
-    }
-
-    h2 {
-      color: $color-gold;
-      font-size: 24px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-      font-weight: bold;
-
-      @media (min-width: 768px) {
-        font-size: 32px;
-      }
-    }
-
-    h3 {
-      font-size: 18px;
-      font-weight: normal;
-      letter-spacing: 1px;
-
-      @media (min-width: 768px) {
-        font-size: 24px;
-      }
-    }
-  }
-
-  .desc-text {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.9;
-
-    @media (min-width: 768px) {
-      width: 50%;
-      padding-left: 30px;
-      border-left: 1px solid rgba(255, 255, 255, 0.3); // 中間的分隔線
-    }
-  }
-}
-
-// 卡片與 Swiper 樣式
-.slider-container {
-  width: 100%;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-  // 圖片容器
-  .img-box {
+  .header-group {
     width: 100%;
-    aspect-ratio: 4/3; // 保持圖片比例
-    overflow: hidden;
-    position: relative;
-    // border-radius: 4px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background-blend-mode: overlay;
-    @media (min-width: 768px) {
-      height: size(220);
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: 769px) {
+      max-width: size(1240);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: size(110);
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+    .main-titles {
+      text-align: center;
+      .title {
+        width: sizem(285);
+        @media (min-width: 769px) {
+          width: size(510);
+        }
+      }
+      h3 {
+        color: #fff;
+        font-weight: 500;
+        font-size: sizem(18);
+        letter-spacing: sizem(3.24);
+        margin-top: sizem(15);
+        padding-bottom: sizem(80);
+        @media (min-width: 769px) {
+          padding-bottom: 0;
+          font-size: size(32);
+          letter-spacing: size(5.76);
+          margin-top: size(20);
+        }
+      }
     }
 
-    // "實景圖" 標籤
-    .img-label {
-      position: absolute;
-      bottom: 5px;
-      right: 10px;
-      font-size: 12px;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    .desc-text {
+      position: relative;
+      &::after {
+        content: '';
+        background: #fff;
+        position: absolute;
+        width: size(1);
+        height: size(100);
+        left: 50%;
+        transform: translateX(-50%);
+        top: sizem(-50);
+
+        @media (min-width: 769px) {
+          width: size(1);
+          height: size(48);
+          left: size(-30);
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      @media (min-width: 769px) {
+        max-width: size(620);
+        margin-left: size(105);
+      }
+      p {
+        color: #fff;
+        font-weight: 500;
+        line-height: 1.6;
+
+        text-align: center;
+        font-size: sizem(13);
+        letter-spacing: sizem(0.91);
+        width: sizem(310);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: sizem(50);
+        @media (min-width: 769px) {
+          margin-bottom: 0;
+          text-align: left;
+          width: auto;
+          font-size: size(18);
+          letter-spacing: size(1.26);
+        }
+      }
     }
   }
 
-  &:hover .img-box img {
-    transform: scale(1.1);
-  }
+  .slider-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @media (min-width: 769px) {
+      max-width: size(1480);
+    }
 
-  .card-title {
-    font-size: 18px;
-    text-align: center;
-    color: $color-white;
-    letter-spacing: 1px;
-    margin: 15px 0;
-  }
+    .swiper {
+      @media (min-width: 769px) {
+        padding-top: size(20);
+        padding-bottom: size(20);
+      }
+      .swiper_item {
+        .swiper_item_title {
+          text-align: center;
+          font-weight: 500;
+          line-height: 1.6;
+          color: #fff;
 
-  // 處理 "文字在上" 的樣式
-  &.text-top {
-    flex-direction: column; // 預設順序：標題 -> 圖片
+          padding-top: sizem(80);
+          padding-bottom: sizem(10);
 
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+          background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          background-blend-mode: overlay;
 
-    .card-title {
-      margin-bottom: 15px;
-      margin-top: 0;
+
+          font-size: sizem(12);
+          letter-spacing: sizem(1.191);
+
+          @media (min-width: 769px) {
+            padding-top: size(160);
+            padding-bottom: size(25);
+            font-size: size(24);
+            letter-spacing: size(2.4);
+          }
+          &.bottom {
+            background: linear-gradient(
+              180deg,
+              rgba(255, 255, 255, 0.15) 0%,
+              rgba(255, 255, 255, 0) 100%
+            );
+            padding-top: sizem(10);
+            padding-bottom: sizem(80);
+
+            @media (min-width: 769px) {
+              padding-top: size(25);
+              padding-bottom: size(160);
+            }
+          }
+        }
+        .swiper_item_img {
+          position: relative;
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+          p {
+            position: absolute;
+            color: #fff;
+            font-weight: 500;
+            line-height: 1.6;
+            font-size: sizem(6);
+            right: sizem(10);
+            bottom: sizem(5);
+
+            @media (min-width: 769px) {
+              letter-spacing: size(1.4);
+              font-size: size(14);
+              right: size(10);
+              bottom: size(5);
+            }
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+
+            background-image: url(./s4/light.png);
+            background-size: cover;
+            @media (min-width: 769px) {
+              width: 90%;
+              height: 90%;
+              bottom: -31%;
+              left: -12%;
+            }
+          }
+          &.bottom {
+            margin-top: sizem(50);
+            @media (min-width: 769px) {
+              margin-top: 0;
+            }
+            &::after {
+              @media (min-width: 769px) {
+                bottom: unset;
+                top: -59%;
+                left: -10%;
+              }
+            }
+          }
+        }
+      }
     }
   }
-
-  // 處理 "文字在下" 的樣式
-  &.text-bottom {
-    flex-direction: column-reverse; // 反轉順序：圖片 -> 標題
-
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    .card-title {
-      margin-top: 15px;
-      margin-bottom: 0;
-    }
-  }
-}
-
-// 裝飾葉子 (用 CSS 簡單模擬)
-.deco-leaf {
-  position: absolute;
-  bottom: -50px;
-  left: -50px;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, #e0e0e0 0%, #b0b0b0 100%);
-  opacity: 0.2;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  // 實際專案請用 background-image: url('leaf.png');
-}
-
-// Swiper 修正
-:deep(.swiper-wrapper) {
-  align-items: center; // 讓卡片垂直置中
 }
 </style>
