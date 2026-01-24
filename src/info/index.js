@@ -7,7 +7,7 @@ export default {
     address1: "接待中心",//按鈕區的--- 如空白會只呈現地址
     address2: "",//map點下確認的--- 如空白會顯示"導航地址"
     address: "臺南市北區北門路二段132號",
-    googleSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7345.090273190614!2d120.21059187940935!3d23.0037482!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e770019709bf9%3A0x6e7b20a589808af2!2z5oiQ5aSn5LmL5qOuLeaOpeW-heacg-mkqA!5e0!3m2!1szh-TW!2stw!4v1761812589196!5m2!1szh-TW!2stw",
+    googleSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58754.77636119704!2d120.17386955659586!3d23.01740015403479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76f3b575de43%3A0xa197e2a79ab337e5!2zNzA05Y-w54Gj55yB5YyX5Yy65YyX6ZaA6Lev5LqM5q61MTMy6Jmf!5e0!3m2!1szh-TW!2stw!4v1769258756961!5m2!1szh-TW!2stw",
     googleLink: "https://maps.app.goo.gl/cNVU4WAJEgS89ZdSA",
     phone: "06-2370888",
     fbLink: "https://www.facebook.com/ForestofAspiration/",
@@ -17,11 +17,11 @@ export default {
     houseInfos: [
       /*   */
       ["投資建設", "中德建設股份有限公司"],
-      ["建築規劃", "A8聯合建築師事務所"],
-      ["公設設計", "呈境室內裝修設計"],
-      ["園藝景觀", "大漢景觀工程設計"],
+      ["建築規劃", "陳朝雄．A8聯合建築師事務所"],
+      ["公設設計", "袁世賢．呈境室內裝修設計"],
+      ["園藝景觀", "徐世萃．大漢景觀工程設計"],
       ["建照號碼", "（114）南工造字第00169號"],
-      ["建築行銷", "得邦廣告"],
+      ["建築行銷", "得邦廣告股份有限公司"],
     ],
     gtmCode: ["GTM-KGPCM5TH"], // 可放置多個
     recaptcha_site_key_v2: "6Lep-78UAAAAAMaZLtddpvpixEb8cqu7v7758gLz", //主1

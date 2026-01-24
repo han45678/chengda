@@ -22,7 +22,6 @@
     />
     <fullview
       class="s2_bg m"
-      :bg="'@/section/s2/pic.png'"
     />
   </article>
 </template>

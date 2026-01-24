@@ -299,7 +299,7 @@
         }
 
         &.address {
-          border-radius: 0;
+          border-radius: 1em 1em 0 0;
           padding: 1.1em 0;
         //  margin-top: sizem(25);
           //font-size: .9em;
@@ -313,7 +313,7 @@
         }
 
         &.address+div {
-          border-radius: 0 0;
+          border-radius: 0 0 1em 1em;
         }
       &.googlemap {
         border-top-width: 0;

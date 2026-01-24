@@ -38,9 +38,9 @@
         class="bg"
         v-else
       >
-        <img src="@/section/s1/bg.jpg" /><img src="@/section/s1/bg.jpg" /><img
-          src="@/section/s1/bg.jpg"
-        /><img src="@/section/s1/bg.jpg" />
+        <img src="@/section/s1/bg.webp" /><img src="@/section/s1/bg.webp" /><img
+          src="@/section/s1/bg.webp"
+        /><img src="@/section/s1/bg.webp" />
       </div>
       <S1 />
       <S2 />
@@ -53,6 +53,7 @@
     </div>
     <S6 />
     <S7 />
+    <S8 />
     <!--
     <S1new />
     <S1new2 /> -->
@@ -128,7 +129,7 @@ img {
     background: url('@/section/s1/obgm.jpg') center center;
     background-size: sizem(375) auto;
     @media screen and (min-width: 768px) {
-      background-image: url('@/section/s1/obg.jpg');
+      background-image: url('@/section/s1/obg.webp');
       background-size: 100% auto;
     }
   }
@@ -155,6 +156,7 @@ import S4 from '@/section/s4.vue';
 import S5 from '@/section/s5.vue';
 import S6 from '@/section/s6.vue';
 import S7 from '@/section/s7.vue';
+import S8 from '@/section/s8.vue';
 import Order from '@/section/order.vue';
 import { computed, getCurrentInstance, onMounted, ref } from 'vue';
 const globals = getCurrentInstance().appContext.config.globalProperties;
