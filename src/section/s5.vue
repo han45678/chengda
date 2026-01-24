@@ -124,6 +124,9 @@ $color-bar: #3baee3;
   .leaf {
     position: absolute;
     &.leaf1 {
+       width: sizem(75);
+       top: sizem(30);
+       left: 0 ;
       @media (min-width: 768px) {
         width: size(270);
         top: size(-200);
@@ -153,8 +156,9 @@ $color-bar: #3baee3;
   .text-header {
     // 手機版間距
     margin-bottom: sizem(20);
-
+    text-align: center;
     @media (min-width: 768px) {
+      text-align: unset;
       margin-bottom: size(40);
     }
 

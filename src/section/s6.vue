@@ -29,7 +29,7 @@ const parks = [
   {
     id: 3,
     name: '東興公園',
-    img_m: pic02m,
+    img_m: pic03m,
     img_pc: pic03,
     text: '東興公園實景圖'
   },
@@ -72,8 +72,13 @@ const currentPark = computed(() => parks[activeIndex.value]);
       <div class="top-section">
         <div class="text-group">
           <img
-            class="title-img"
+            class="title-img pc"
             src="./s6/title.svg"
+            alt="title"
+          />
+          <img
+            class="title-img m"
+            src="./s6/title_m.svg"
             alt="title"
           />
           <span class="line"></span>
@@ -162,7 +167,7 @@ $color-text: #444;
   background-image: url(./s6/bg.jpg); // 模擬紙質紋理
 
   // 手機版 Padding
-  padding: sizem(50) sizem(20);
+  padding: sizem(50) 0;
 
   // 電腦版 Padding
   @media (min-width: 768px) {
@@ -181,6 +186,9 @@ $color-text: #444;
   .leaf {
     position: absolute;
     &.leaf2 {
+      width: sizem(75);
+      top: sizem(15);
+      right: 0;
       @media (min-width: 768px) {
         width: size(220);
         top: size(-125);
@@ -195,6 +203,8 @@ $color-text: #444;
   display: flex;
   flex-direction: column;
   margin-bottom: sizem(30);
+  padding-left: sizem(15);
+    padding-right: sizem(15);
 
   @media (min-width: 768px) {
     flex-direction: row; // 電腦版並排
@@ -221,6 +231,19 @@ $color-text: #444;
 
       @media (min-width: 768px) {
         width: 100%;
+      }
+
+      &.pc {
+        display: none;
+        @media (min-width: 768px) {
+          display: block;
+        }
+      }
+      &.m {
+        display: block;
+        @media (min-width: 768px) {
+          display: none;
+        }
       }
     }
 
@@ -255,7 +278,7 @@ $color-text: #444;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: sizem(10);
+    gap: sizem(5);
 
     @media (min-width: 768px) {
       justify-content: flex-end;
@@ -276,8 +299,8 @@ $color-text: #444;
       font-weight: 500;
 
       // 手機版按鈕尺寸
-      padding: sizem(8) sizem(20);
-      font-size: sizem(14);
+      padding: sizem(8) sizem(12.5);
+      font-size: sizem(12);
 
       // 電腦版按鈕尺寸
       @media (min-width: 768px) {
@@ -322,8 +345,8 @@ $color-text: #444;
     transition: background 0.3s;
 
     // 手機版箭頭大小
-    width: sizem(40);
-    height: sizem(40);
+    width: sizem(24);
+    height: sizem(24);
     &.prev {
       left: sizem(10);
     }

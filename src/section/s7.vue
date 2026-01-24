@@ -36,14 +36,31 @@ const isMobile = computed(() => globals.$isMobile());
     <div class="top">
       <div class="text">
         <img
-          class="title-img"
+          class="title-img pc"
           src="./s7/title.svg"
           alt="title"
         />
-        <p>
-          府城400年文化底蘊，孕育出世界頂尖大學-成功大學，知名校友遍及科技政商藝文各界，為台灣重要教育搖籃。「成大之森」驕傲立足成大首排，又鄰近台南明星高中台南一中，近享頂流學府濃郁書香。
+        <img
+          class="title-img m"
+          src="./s7/title_m.svg"
+          alt="title"
+        />
+        <p class="pc">
+          府城400年文化底蘊，孕育出世界頂尖大學-
+          成功大學，知名校友遍及科技政商藝文各界， 為台灣重要教育搖籃。
+          「成大之森」驕傲立足成大首排， 又鄰近台南明星高中台南一中，
+          近享頂流學府濃郁書香。
+        </p>
+        <p class="m">
+          府城400年文化底蘊，孕育出世界頂尖大學<br />
+          成功大學，知名校友遍及科技政商藝文各界<br />
+          為台灣重要教育搖籃<br />
+          「成大之森」驕傲立足成大首排<br />
+          又鄰近台南明星高中台南一中<br />
+          近享頂流學府濃郁書香
         </p>
       </div>
+      <p class="detailed">成功大學實景圖</p>
     </div>
     <div class="bottom">
       <swiper
@@ -53,10 +70,14 @@ const isMobile = computed(() => globals.$isMobile());
         :centered-slides="true"
         :space-between="15"
         :loop="isMobile"
-        :autoplay="isMobile ? {
-          delay: 3000,
-          disableOnInteraction: false
-        } : false"
+        :autoplay="
+          isMobile
+            ? {
+                delay: 3000,
+                disableOnInteraction: false
+              }
+            : false
+        "
         :breakpoints="{
           769: {
             slidesPerView: 'auto',
@@ -72,7 +93,7 @@ const isMobile = computed(() => globals.$isMobile());
           v-for="(item, index) in slideData"
           :key="index"
         >
-          <div class="card">
+          <div class="school-item">
             <div class="img-box">
               <img
                 :src="item.img"
@@ -94,18 +115,113 @@ const isMobile = computed(() => globals.$isMobile());
 // @media (min-width: 769px) {}
 
 .s7 {
-  background-color: #fff;
+  background-color: #bad58d;
   z-index: 1;
   position: relative;
 
   .top {
     background-size: cover;
-    background-position: center center;
+    background-position: center bottom;
     background-repeat: no-repeat;
+    background-image: url(./s7/banner_m.jpg);
+    position: relative;
+    padding-top: sizem(60);
+    padding-bottom: sizem(250);
     @media (min-width: 769px) {
       padding-top: size(160);
-      padding-bottom: size(470);
+      padding-bottom: size(600);
       background-image: url(./s7/banner.png);
+    }
+
+    .text {
+      @media (min-width: 769px) {
+        padding-left: size(200);
+        padding-right: size(200);
+      }
+      .title-img {
+        width: sizem(210);
+        @media (min-width: 769px) {
+          width: size(760);
+        }
+
+        &.pc {
+          display: none;
+          @media (min-width: 768px) {
+            display: block;
+          }
+        }
+        &.m {
+          display: block;
+          @media (min-width: 768px) {
+            display: none;
+          }
+        }
+      }
+      p {
+        color: #262626;
+        font-weight: 500;
+        line-height: 1.6;
+        text-align: center;
+        font-size: sizem(12);
+        position: relative;
+        width: sizem(310);
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: sizem(90);
+        @media (min-width: 769px) {
+          width: size(700);
+          text-align: left;
+          font-size: size(18);
+          letter-spacing: size(1.8);
+          padding-top: size(130);
+        }
+        &::before {
+          content: '';
+          background: #262626;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          width: sizem(1);
+          height: sizem(48);
+          top: sizem(20);
+          @media (min-width: 769px) {
+            width: size(1);
+            height: size(48);
+            top: size(40);
+          }
+        }
+
+        &.pc {
+          display: none;
+          @media (min-width: 768px) {
+            display: block;
+          }
+        }
+        &.m {
+          display: block;
+          @media (min-width: 768px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .detailed {
+      position: absolute;
+      color: #fff;
+      font-size: sizem(12);
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: sizem(0.44);
+      bottom: sizem(2.5);
+      right: sizem(15);
+
+      @media (min-width: 769px) {
+        font-size: size(12);
+        letter-spacing: size(0.56);
+        bottom: size(40);
+        right: size(40);
+      }
     }
   }
 
@@ -114,6 +230,9 @@ const isMobile = computed(() => globals.$isMobile());
     background-position: center center;
     background-repeat: no-repeat;
     background-blend-mode: hard-light;
+    padding-top: sizem(60);
+    padding-bottom: sizem(40);
+    background-image: url(./s7/bg_m.png);
     @media (min-width: 769px) {
       padding-top: size(95);
       padding-bottom: size(125);
@@ -126,7 +245,7 @@ const isMobile = computed(() => globals.$isMobile());
   .school-swiper {
     .swiper-slide {
       width: auto !important;
-      .card {
+      .school-item {
         .img-box {
           img {
             width: auto;
@@ -134,6 +253,19 @@ const isMobile = computed(() => globals.$isMobile());
             @media (min-width: 769px) {
               height: size(240);
             }
+          }
+        }
+        .name {
+          color: #fff;
+          text-align: right;
+          font-size: sizem(12);
+          font-weight: 500;
+          line-height: 1.6;
+          letter-spacing: sizem(0.44);
+
+          @media (min-width: 769px) {
+            font-size: size(12);
+            letter-spacing: size(0.56);
           }
         }
       }
