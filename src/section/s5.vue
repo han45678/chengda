@@ -10,7 +10,11 @@
     <div class="wrapper">
       <div class="box-text">
         <div class="text-header">
-          <h2>見證府城時尚風采<br />百貨商圈繁華匯聚</h2>
+          <img
+            class="title-img"
+            src="./s5/title.svg"
+            alt="title"
+          />
           <span class="line-deco"></span>
         </div>
         <p class="text-desc">
@@ -58,6 +62,17 @@
         <div class="caption"><span class="bar"></span>花園夜市</div>
       </div>
     </div>
+
+    <img
+      class="leaf leaf1"
+      src="./s5/leaf1.png"
+      alt="leaf"
+    />
+    <!-- <img
+      class="leaf leaf2"
+      src="./s5/leaf2.png"
+      alt="leaf"
+    /> -->
   </article>
 </template>
 
@@ -71,15 +86,14 @@ $color-white: #ffffff;
 $color-bar: #3baee3;
 
 .s5 {
-  // background-color: $color-bg;
-  // 手機版使用 sizem
+  position: relative;
   padding: sizem(40) sizem(20);
   color: $color-white;
-  overflow: hidden;
+  overflow: visible;
 
   // 電腦版覆蓋為 size
   @media (min-width: 768px) {
-    padding: size(50) 0;
+    padding: size(50) 0 size(180) 0;
   }
 
   .wrapper {
@@ -99,11 +113,22 @@ $color-bar: #3baee3;
     // --- 電腦版 Grid (使用 size) ---
     @media (min-width: 768px) {
       max-width: size(1520);
-      gap: size(30);
+      gap: size(20);
       grid-template-columns: 28% 34% 1fr;
       grid-template-areas:
         'i1 i3 txt'
         'i2 i3 i4';
+    }
+  }
+
+  .leaf {
+    position: absolute;
+    &.leaf1 {
+      @media (min-width: 768px) {
+        width: size(270);
+        top: size(-200);
+        left: 0;
+      }
     }
   }
 }
@@ -113,18 +138,12 @@ $color-bar: #3baee3;
 // 1. 文字區塊
 .box-text {
   grid-area: txt;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   // 手機版間距
   margin-bottom: sizem(20);
 
   @media (min-width: 768px) {
-    align-items: flex-end;
-    text-align: right;
-    justify-content: flex-start;
+    text-align: center;
 
     // 電腦版間距重設
     margin-bottom: 0;
@@ -134,36 +153,24 @@ $color-bar: #3baee3;
   .text-header {
     // 手機版間距
     margin-bottom: sizem(20);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (min-width: 768px) {
-      align-items: flex-end;
-      // 電腦版間距
-      margin-bottom: size(20);
+      margin-bottom: size(40);
     }
 
-    h2 {
-      color: $color-gold;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      line-height: 1.4;
-
-      // 手機版字體
-      font-size: sizem(24);
+    .title-img {
       margin-bottom: sizem(15);
-
-      // 電腦版字體
+      width: sizem(205);
       @media (min-width: 768px) {
-        font-size: size(36);
-        margin-bottom: size(15);
+        width: size(375);
+        margin-bottom: size(40);
       }
     }
 
     .line-deco {
       display: block;
       background-color: $color-white;
+      margin: 0 auto;
 
       // 手機版線條
       width: 1px;
@@ -177,18 +184,17 @@ $color-bar: #3baee3;
   }
 
   .text-desc {
-    line-height: 1.8;
+    color: #fff;
+    line-height: 1.6;
+    font-weight: 500;
     text-align: center;
-    max-width: 90%;
 
-    // 手機版字體
-    font-size: sizem(14);
+    font-size: sizem(12);
 
     @media (min-width: 768px) {
       text-align: left;
-      max-width: 100%;
-      // 電腦版字體
-      font-size: size(16);
+      font-size: size(18);
+      letter-spacing: size(1.8) ;
     }
   }
 }
@@ -202,7 +208,7 @@ $color-bar: #3baee3;
     width: 100%;
     overflow: hidden;
     position: relative;
-    height: calc(100% - size(50));
+    height: calc(100% - size(30));
 
     img {
       width: 100%;
@@ -235,11 +241,16 @@ $color-bar: #3baee3;
 
     .bar {
       // [新增] 關鍵屬性：讓 Bar 佔據剩餘的所有空間
-      flex: 1; 
-      
+      flex: 1;
+
       display: block; // 建議改為 block 或保持 inline-block 皆可
-      height: 3px;
-      background: linear-gradient(90deg, transparent, $color-bar);
+      height: sizem(10);
+
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.75) 100%
+      );
 
       // 手機版間距
       margin-right: sizem(10);
@@ -249,13 +260,14 @@ $color-bar: #3baee3;
       // 電腦版間距
       @media (min-width: 768px) {
         margin-right: size(10);
+        height: size(10);
         // 移除 width: size(80); <-- 刪除這行
       }
     }
-    
+
     // [選用優化] 防止文字被擠壓換行
-    white-space: nowrap; 
-}
+    white-space: nowrap;
+  }
 }
 
 // 3. 各個 Grid Area 指定
@@ -270,18 +282,5 @@ $color-bar: #3baee3;
 }
 .item-4 {
   grid-area: i4;
-
-  @media (min-width: 768px) {
-    display: flex;
-    justify-content: flex-end;
-
-    justify-content: flex-end;
-    .bar {
-      order: 2;
-      background: linear-gradient(90deg, $color-bar, transparent);
-      margin-right: 0;
-      margin-left: size(10);
-    }
-  }
 }
 </style>
