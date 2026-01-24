@@ -1,5 +1,4 @@
 <script setup>
-// 移除 images 物件，直接在 template 使用靜態路徑
 </script>
 
 <template>
@@ -17,7 +16,7 @@
           />
           <span class="line-deco"></span>
         </div>
-        <p class="text-desc">
+        <p class="text-desc font-['Noto_Sans_TC',serif]">
           「成大之森」位居台南繁華核心，十幾分鐘車程內盡享台南便利商圈，7大百貨、4大夜市齊聚，繽紛百匯、餐飲、時尚、娛樂一次滿足，布局「成大之森」讓您輕鬆享受舒適與未來增值生活！
         </p>
       </div>
@@ -29,7 +28,7 @@
             alt="新光三越小北門店"
           />
         </div>
-        <div class="caption"><span class="bar"></span>新光三越小北門店</div>
+        <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>新光三越小北門店</div>
       </div>
 
       <div class="box-img item-2">
@@ -39,7 +38,7 @@
             alt="南紡購物中心"
           />
         </div>
-        <div class="caption"><span class="bar"></span>南紡購物中心</div>
+        <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>南紡購物中心</div>
       </div>
 
       <div class="box-img item-3">
@@ -49,7 +48,7 @@
             alt="台南香格里拉&大遠百"
           />
         </div>
-        <div class="caption"><span class="bar"></span>台南香格里拉&大遠百</div>
+        <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>台南香格里拉&大遠百</div>
       </div>
 
       <div class="box-img item-4">
@@ -59,7 +58,7 @@
             alt="花園夜市"
           />
         </div>
-        <div class="caption"><span class="bar"></span>花園夜市</div>
+        <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>花園夜市</div>
       </div>
     </div>
 
@@ -68,11 +67,6 @@
       src="./s5/leaf1.png"
       alt="leaf"
     />
-    <!-- <img
-      class="leaf leaf2"
-      src="./s5/leaf2.png"
-      alt="leaf"
-    /> -->
   </article>
 </template>
 

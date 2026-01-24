@@ -45,13 +45,13 @@ const isMobile = computed(() => globals.$isMobile());
           src="./s7/title_m.svg"
           alt="title"
         />
-        <p class="pc">
+        <p class="pc font-['Noto_Sans_TC',serif]">
           府城400年文化底蘊，孕育出世界頂尖大學-
           成功大學，知名校友遍及科技政商藝文各界， 為台灣重要教育搖籃。
           「成大之森」驕傲立足成大首排， 又鄰近台南明星高中台南一中，
           近享頂流學府濃郁書香。
         </p>
-        <p class="m">
+        <p class="m font-['Noto_Sans_TC',serif]">
           府城400年文化底蘊，孕育出世界頂尖大學<br />
           成功大學，知名校友遍及科技政商藝文各界<br />
           為台灣重要教育搖籃<br />
@@ -60,7 +60,7 @@ const isMobile = computed(() => globals.$isMobile());
           近享頂流學府濃郁書香
         </p>
       </div>
-      <p class="detailed">成功大學實景圖</p>
+      <p class="detailed font-['Noto_Sans_TC',serif]">成功大學實景圖</p>
     </div>
     <div class="bottom">
       <swiper
@@ -100,7 +100,7 @@ const isMobile = computed(() => globals.$isMobile());
                 :alt="item.title"
               />
             </div>
-            <p class="name">{{ item.title }}</p>
+            <p class="name font-['Noto_Sans_TC',serif]">{{ item.title }}</p>
           </div>
         </swiper-slide>
       </swiper>

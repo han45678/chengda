@@ -3,7 +3,7 @@
     class="s3"
     id="s3"
   >
-    <div class="text">
+    <div class="text font-['Noto_Sans_TC',serif]">
       <div class="pic">
         <img
           src="./s3/pic.jpg"

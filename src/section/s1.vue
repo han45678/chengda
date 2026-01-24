@@ -113,15 +113,4 @@
 }
 </style>
 <script setup>
-import { computed, getCurrentInstance, ref, inject } from 'vue';
-const globals = getCurrentInstance().appContext.config.globalProperties;
-
-const isMobile = computed(() => globals.$isMobile());
-
-const smoothScroll = inject('smoothScroll');
-const scrollTo = (el) => {
-  smoothScroll({
-    scrollTo: document.querySelector(el)
-  });
-};
 </script>

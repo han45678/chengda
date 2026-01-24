@@ -20,10 +20,10 @@ const modules = [Pagination, Autoplay];
           src="./s4/title.svg"
           alt="title"
         />
-        <h3>台南車站+捷運綠線+北外環</h3>
+        <h3 class="font-['Noto_Sans_TC',serif]">台南車站+捷運綠線+北外環</h3>
       </div>
       <div class="desc-text">
-        <p>
+        <p class="font-['Noto_Sans_TC',serif]">
           位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
         </p>
       </div>
@@ -47,13 +47,13 @@ const modules = [Pagination, Autoplay];
       >
         <swiper-slide>
           <div class="swiper_item">
-            <div class="swiper_item_title">台南火車站</div>
+            <div class="swiper_item_title font-['Noto_Sans_TC',serif]">台南火車站</div>
             <div class="swiper_item_img">
               <img
                 src="./s4/pic01.webp"
                 alt="slide1"
               />
-              <p>實景圖</p>
+              <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
             </div>
           </div>
         </swiper-slide>
@@ -65,21 +65,21 @@ const modules = [Pagination, Autoplay];
                 src="./s4/pic02.webp"
                 alt="slide1"
               />
-              <p>實景圖</p>
+              <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
             </div>
-            <div class="swiper_item_title bottom">北環道路</div>
+            <div class="swiper_item_title bottom font-['Noto_Sans_TC',serif]">北環道路</div>
           </div>
         </swiper-slide>
 
         <swiper-slide>
           <div class="swiper_item">
-            <div class="swiper_item_title">國道1號</div>
+            <div class="swiper_item_title font-['Noto_Sans_TC',serif]">國道1號</div>
             <div class="swiper_item_img">
               <img
                 src="./s4/pic03.webp"
                 alt="slide1"
               />
-              <p>實景圖</p>
+              <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
             </div>
           </div>
         </swiper-slide>

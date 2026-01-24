@@ -82,7 +82,7 @@ const currentPark = computed(() => parks[activeIndex.value]);
             alt="title"
           />
           <span class="line"></span>
-          <p class="desc">
+          <p class="desc font-['Noto_Sans_TC',serif]">
             成功大學第一排，無可取代的位置，開窗坐享25萬坪頂尖人文綠色流域，後擁台南公園百年翠綠，集古蹟、自然、文化、歷史於一身4萬餘坪的城市森林，成大之森獨擁綠色奢華，獻給品味不凡的靈魂。
           </p>
         </div>
