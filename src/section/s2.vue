@@ -6,11 +6,14 @@
     <img
       src="./s2/t1.svg"
       class="t1"
-      data-aos="zoom-out"
+      data-aos="fade-up"
       data-aos-delay="0"
     />
 
-    <p class="font-['Noto_Sans_TC',serif]">
+    <p
+      class="font-['Noto_Sans_TC',serif]"
+      data-aos="fade-up"
+    >
       面2萬5千坪成大綠海首席，5萬坪台南公園旁；台南車站、捷運綠線，雙鐵交匯增值動能驚人；<br />
       頂尖學府成大、南一中雙明星學區文風加持；匯集遠百、新光三越7大商圈、4大夜市旗艦級繁華商圈。
     </p>
@@ -20,9 +23,7 @@
       src="@/section/s2/pic.png"
       alt="pic"
     />
-    <fullview
-      class="s2_bg m"
-    />
+    <fullview class="s2_bg m" />
   </article>
 </template>
 
@@ -34,7 +35,6 @@
   background: linear-gradient(to top, #2d9cd7 0%, #0b2a49 100%);
   width: 100%;
   position: relative;
-  // height: sizem(900);
   @media screen and (min-width: 768px) {
     height: auto;
     background: linear-gradient(to top, #2d9cd7 0%, #0b2a49 100%);
@@ -46,6 +46,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: sizem(250);
+    width: sizem(235);
     @media screen and (min-width: 768px) {
       padding-top: 0;
       width: size(420);
@@ -61,16 +62,21 @@
     padding-top: sizem(70);
     width: sizem(300);
     position: relative;
-    &::before{
+    &::before {
       content: '';
       position: absolute;
-      width: sizem(0.5);
-      height: sizem(25);
+      width: sizem(1);
+      height: sizem(48);
       top: sizem(22);
       left: 0;
       right: 0;
       margin: auto;
       background-color: #fff;
+      @media screen and (min-width: 768px) {
+        width: size(1);
+        height: size(48);
+        top: size(-90);
+      }
     }
     @media screen and (min-width: 768px) {
       line-height: 1.6;
@@ -87,7 +93,7 @@
     }
     &.m {
       display: block;
-          // background: linear-gradient(to top, #2d9cd7 60%, #0b2a49 100%);
+      // background: linear-gradient(to top, #2d9cd7 60%, #0b2a49 100%);
       @media screen and (min-width: 768px) {
         display: none;
       }

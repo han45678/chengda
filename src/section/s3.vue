@@ -6,21 +6,23 @@
     <div class="text font-['Noto_Sans_TC',serif]">
       <div class="pic">
         <img
+        data-aos="fade-up"
           src="./s3/pic.jpg"
           alt="pic"
         />
       </div>
       <img
+      data-aos="fade-up"
         src="./s3/t1.svg"
         alt="title"
       />
-      <p>
+      <p data-aos="fade-up">
         台南門戶計畫因半導體及世界AI巨擘擴大投資台南而生，台南車站4站距離可抵南科與高鐵，透過交通轉運與科技發展緊密串連。
       </p>
-      <p>
+      <p data-aos="fade-up">
         台南門戶計畫主要結合了鐵路地下化、車站TOD再造計畫、三座商業大樓(8萬坪招商面積)、綠園道、並增設2站地下化車站(林森站、南台南)，消除地面鐵路對都市發展的阻礙，並配合都市更新，打造現代化的交通樞紐，國際級CBD。
       </p>
-      <p class="highlight">
+      <p class="highlight" data-aos="fade-up">
         「成大之森」緊鄰台南門戶計畫核心，絕對是您置產投資致富的關鍵標的！
       </p>
     </div>
@@ -170,8 +172,6 @@
       // 3. 垂直分隔線
       &:first-of-type {
         position: relative;
-
-        // --- 手機版優先 (Base) ---
         margin-top: sizem(30);
 
         &::before {
@@ -182,9 +182,9 @@
           background-color: #a0a0a0;
 
           // Mobile
-          top: sizem(-30);
+          top: sizem(-50);
           width: sizem(1);
-          height: sizem(15);
+          height: sizem(40);
         }
 
         // --- 電腦版 (Desktop) ---

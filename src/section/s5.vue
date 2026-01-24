@@ -13,15 +13,16 @@
             class="title-img"
             src="./s5/title.svg"
             alt="title"
+            data-aos="fade-up"
           />
-          <span class="line-deco"></span>
+          <span class="line-deco" data-aos="fade-up"></span>
         </div>
-        <p class="text-desc font-['Noto_Sans_TC',serif]">
+        <p class="text-desc font-['Noto_Sans_TC',serif]" data-aos="fade-up">
           「成大之森」位居台南繁華核心，十幾分鐘車程內盡享台南便利商圈，7大百貨、4大夜市齊聚，繽紛百匯、餐飲、時尚、娛樂一次滿足，布局「成大之森」讓您輕鬆享受舒適與未來增值生活！
         </p>
       </div>
 
-      <div class="box-img item-1">
+      <div class="box-img item-1" data-aos="fade-up">
         <div class="img-wrap">
           <img
             src="./s5/pic01.jpg"
@@ -117,14 +118,15 @@ $color-bar: #3baee3;
 
   .leaf {
     position: absolute;
+    animation: sway 15s ease-in-out infinite;
     &.leaf1 {
        width: sizem(75);
        top: sizem(30);
-       left: 0 ;
+       left: sizem(-20);
       @media (min-width: 768px) {
         width: size(270);
         top: size(-200);
-        left: 0;
+        left: size(-20);
       }
     }
   }
@@ -229,7 +231,7 @@ $color-bar: #3baee3;
 
     // 手機版文字與間距
     margin-top: sizem(10);
-    font-size: sizem(14);
+    font-size: sizem(10);
 
     // 電腦版文字與間距
     @media (min-width: 768px) {
@@ -242,7 +244,7 @@ $color-bar: #3baee3;
       flex: 1;
 
       display: block; // 建議改為 block 或保持 inline-block 皆可
-      height: sizem(10);
+      height: sizem(3);
 
       background: linear-gradient(
         90deg,
@@ -280,5 +282,17 @@ $color-bar: #3baee3;
 }
 .item-4 {
   grid-area: i4;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
 }
 </style>

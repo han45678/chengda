@@ -39,19 +39,21 @@ const isMobile = computed(() => globals.$isMobile());
           class="title-img pc"
           src="./s7/title.svg"
           alt="title"
+          data-aos="fade-up"
         />
         <img
           class="title-img m"
           src="./s7/title_m.svg"
           alt="title"
+          data-aos="fade-up"
         />
-        <p class="pc font-['Noto_Sans_TC',serif]">
+        <p class="pc font-['Noto_Sans_TC',serif]" data-aos="fade-up">
           府城400年文化底蘊，孕育出世界頂尖大學-
           成功大學，知名校友遍及科技政商藝文各界， 為台灣重要教育搖籃。
           「成大之森」驕傲立足成大首排， 又鄰近台南明星高中台南一中，
           近享頂流學府濃郁書香。
         </p>
-        <p class="m font-['Noto_Sans_TC',serif]">
+        <p class="m font-['Noto_Sans_TC',serif]" data-aos="fade-up">
           府城400年文化底蘊，孕育出世界頂尖大學<br />
           成功大學，知名校友遍及科技政商藝文各界<br />
           為台灣重要教育搖籃<br />
@@ -60,9 +62,9 @@ const isMobile = computed(() => globals.$isMobile());
           近享頂流學府濃郁書香
         </p>
       </div>
-      <p class="detailed font-['Noto_Sans_TC',serif]">成功大學實景圖</p>
+      <p class="detailed font-['Noto_Sans_TC',serif]" data-aos="fade-up">成功大學實景圖</p>
     </div>
-    <div class="bottom">
+    <div class="bottom" data-aos="fade-up">
       <swiper
         :key="isMobile"
         :modules="modules"
@@ -142,6 +144,7 @@ const isMobile = computed(() => globals.$isMobile());
         width: sizem(210);
         @media (min-width: 769px) {
           width: size(760);
+                  margin: 0;
         }
 
         &.pc {
@@ -174,6 +177,7 @@ const isMobile = computed(() => globals.$isMobile());
           font-size: size(18);
           letter-spacing: size(1.8);
           padding-top: size(130);
+                  margin: 0;
         }
         &::before {
           content: '';

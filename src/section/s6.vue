@@ -75,19 +75,21 @@ const currentPark = computed(() => parks[activeIndex.value]);
             class="title-img pc"
             src="./s6/title.svg"
             alt="title"
+            data-aos="fade-up"
           />
           <img
             class="title-img m"
             src="./s6/title_m.svg"
             alt="title"
+            data-aos="fade-up"
           />
           <span class="line"></span>
-          <p class="desc font-['Noto_Sans_TC',serif]">
+          <p class="desc font-['Noto_Sans_TC',serif]" data-aos="fade-up">
             成功大學第一排，無可取代的位置，開窗坐享25萬坪頂尖人文綠色流域，後擁台南公園百年翠綠，集古蹟、自然、文化、歷史於一身4萬餘坪的城市森林，成大之森獨擁綠色奢華，獻給品味不凡的靈魂。
           </p>
         </div>
 
-        <div class="tab-buttons">
+        <div class="tab-buttons" data-aos="fade-up">
           <button
             v-for="(park, index) in parks"
             :key="park.id"
@@ -99,7 +101,7 @@ const currentPark = computed(() => parks[activeIndex.value]);
         </div>
       </div>
 
-      <div class="gallery-container">
+      <div class="gallery-container" data-aos="fade-up">
         <button
           class="nav-btn prev"
           @click="prevTab"
@@ -185,14 +187,15 @@ $color-text: #444;
 
   .leaf {
     position: absolute;
+    animation: sway 15s ease-in-out infinite;
     &.leaf2 {
       width: sizem(75);
       top: sizem(15);
-      right: 0;
+      right: sizem(-20);
       @media (min-width: 768px) {
         width: size(220);
         top: size(-125);
-        right: 0;
+        right: size(-20);
       }
     }
   }
@@ -444,5 +447,17 @@ $color-text: #444;
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
 }
 </style>

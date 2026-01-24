@@ -6,11 +6,11 @@
     <img
       src="./s8/t1.svg"
       class="t1"
-      data-aos="zoom-out"
+      data-aos="fade-up"
       data-aos-delay="0"
     />
 
-    <p class="font-['Noto_Sans_TC',serif]">
+    <p class="font-['Noto_Sans_TC',serif]" data-aos="fade-up">
       府城400年文化底蘊，孕育出世界頂尖大學-成功大學，知名校友遍及科技政商藝文各界，為台灣重要教育搖籃。「成大之森」驕傲立足成大首排，又鄰近台南明星高中台南一中，近享頂流學府濃郁書香。
     </p>
 
@@ -27,15 +27,10 @@
 @import '@/assets/style/function.scss';
 
 .s8 {
-  // background: #0b2a49;
-  // background: linear-gradient(to top, #2d9cd7 0%, #0b2a49 100%);
   width: 100%;
   position: relative;
-  // height: sizem(900);
   @media screen and (min-width: 768px) {
     height: auto;
-    // background: linear-gradient(to top, #2d9cd7 0%, #0b2a49 100%);
-    // padding-top: size(385);
   }
 
   .t1 {
@@ -76,6 +71,7 @@
       top: size(375);
       left: size(245);
       text-align: left;
+      margin: 0;
     }
 
     &::before {

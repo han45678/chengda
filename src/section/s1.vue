@@ -6,28 +6,28 @@
     <img
       src="./s1/logo.svg"
       class="t1"
-      data-aos="zoom-out"
+      data-aos="fade-up"
       data-aos-delay="0"
     />
 
     <img
       src="./s1/t1.svg"
       class="t2"
-      data-aos="zoom-out"
+      data-aos="fade-up"
       data-aos-delay="0"
     />
 
     <img
       src="./s1/t3.svg"
       class="t3"
-      data-aos="zoom-out"
+      data-aos="fade-up"
       data-aos-delay="0"
     />
 
     <img
       src="./s1/t4.svg"
       class="t4"
-      data-aos="zoom-out"
+      data-aos="fade-up"
       data-aos-delay="0"
     />
   </article>

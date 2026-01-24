@@ -19,16 +19,18 @@ const modules = [Pagination, Autoplay];
           class="title"
           src="./s4/title.svg"
           alt="title"
+          data-aos="fade-up"
+          data-aos-delay="0"
         />
-        <h3 class="font-['Noto_Sans_TC',serif]">台南車站+捷運綠線+北外環</h3>
+        <h3 class="font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="100">台南車站+捷運綠線+北外環</h3>
       </div>
       <div class="desc-text">
-        <p class="font-['Noto_Sans_TC',serif]">
+        <p class="font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="200">
           位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
         </p>
       </div>
     </div>
-    <div class="slider-container">
+    <div class="slider-container" data-aos="fade-up">
       <swiper
         :modules="modules"
         :slides-per-view="1.2"
@@ -141,11 +143,11 @@ const modules = [Pagination, Autoplay];
         content: '';
         background: #fff;
         position: absolute;
-        width: size(1);
-        height: size(100);
+        width: sizem(1);
+        height: sizem(48);
         left: 50%;
         transform: translateX(-50%);
-        top: sizem(-50);
+        top: sizem(-65);
 
         @media (min-width: 769px) {
           width: size(1);
