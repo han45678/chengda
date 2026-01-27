@@ -1,8 +1,8 @@
 <template>
   <div id="order" class="order relative text-center">
     <div class="order-section">
-      <img src="@/section/s1/otitlem.svg" alt="" class="otitle" v-if="isMobile" />
-      <img src="@/section/s1/otitle.svg" alt="" class="otitle" v-else />
+    <!--  <img src="@/section/s1/otitlem.svg" alt="" class="otitle" v-if="isMobile" />
+      <img src="@/section/s1/otitle.svg" alt="" class="otitle" v-else />  -->
       <div class="order-title text-center" v-if="info.order.title"><span v-html="info.order.title"></span></div>
       <div class="order-subTitle text-center" v-if="info.order.subTitle" v-html="$isMobile() && info.order.subTitle_mo?info.order.subTitle_mo:info.order.subTitle"></div>
 
@@ -143,6 +143,12 @@
   width: 100%;
   padding-top: size(40);
   font-size:16px;
+    background: url('@/section/s1/obgm.jpg') center center;
+    background-size: sizem(375) auto;
+    @media screen and (min-width: 768px) {
+      background-image: url('@/section/s1/obg.jpg');
+      background-size: 100% auto;
+    }
 
 .order-section {
   position: relative;

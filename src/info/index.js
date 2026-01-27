@@ -59,48 +59,44 @@ export default {
 },
 
     navList: [
-        /*
         {
-            name: "雙核心地段",
+            name: "成大首排",
+            target: ".s2",
+            offset: "-60",
+            offsetmo: "0",
+        },{
+            name: "門戶計畫",
             target: ".s3",
             offset: "-60",
             offsetmo: "0",
         },{
-            name: "交通中軸",
+            name: "交通捷境",
             target: ".s4",
             offset: "-60",
             offsetmo: "0",
         },{
-            name: "水岸生活",
+            name: "繁華匯聚",
             target: ".s5",
             offset: "-60",
             offsetmo: "0",
         },{
-            name: "菁英學區",
+            name: "萬坪綠海",
             target: ".s6",
             offset: "-60",
             offsetmo: "0",
         },{
-            name: "安心品牌",
+            name: "頂流學府",
             target: ".s7",
-            offset: "-60",
+            offset: "0",
             offsetmo: "0",
         },{
-            name: "電梯店墅",
+            name: "世代之築",
             target: ".s8",
-            offset: "-60",
+            offset: "0",
             offsetmo: "0",
-        },{
-            name: "嚴選建材",
-            target: ".s9",
-            offset: "-60",
-            offsetmo: "0",
-        },{
-            name: "傳家首席",
-            target: ".s10",
-            offset: "-60",
-            offsetmo: "0",
-        },{
+        },
+        /*
+        {
             name: "立即來電",
             target: ".contact-info",
             offset: "",

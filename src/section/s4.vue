@@ -6,6 +6,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const modules = [Pagination, Autoplay];
+
+import { computed, getCurrentInstance } from 'vue';
+const globals = getCurrentInstance().appContext.config.globalProperties;
+
+const isMobile = computed(() => globals.$isMobile());
 </script>
 
 <template>
@@ -14,29 +19,34 @@ const modules = [Pagination, Autoplay];
     id="s4"
   >
     <div class="header-group">
-      <div class="main-titles">
+      <div class="main-titles"
+          data-aos="fade-up"
+          data-aos-delay="0">
         <img
           class="title"
           src="./s4/title.svg"
           alt="title"
-          data-aos="fade-up"
-          data-aos-delay="0"
         />
-        <h3 class="font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="100">台南車站+捷運綠線+北外環</h3>
+        <h3 class="font-['Noto_Sans_TC',serif]">台南車站+捷運綠線+北外環</h3>
       </div>
-      <div class="desc-text">
-        <p class="font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="200">
+      <div class="desc-text"
+          data-aos="fade-up"
+          data-aos-delay="0">
+        <p class="font-['Noto_Sans_TC',serif]" v-if="isMobile">
+          位居台南市中心的革新，步行就到台南車站<br />四站就到南科，下樓就到捷運綠線G10預定站<br />約7分鐘直上北外環道，約15分接軌國道1號
+        </p>
+        <p class="font-['Noto_Sans_TC',serif]" v-else>
           位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
         </p>
       </div>
     </div>
-    <div class="slider-container" data-aos="fade-up">
+    <div class="slider-container" data-aos="fade-up" data-aos-delay="200">
       <swiper
         :modules="modules"
         :slides-per-view="1.2"
         :space-between="20"
         :centered-slides="true"
-        :loop="false"
+        :loop="isMobile"
         :breakpoints="{
           768: {
             slidesPerView: 3,
@@ -56,6 +66,7 @@ const modules = [Pagination, Autoplay];
                 alt="slide1"
               />
               <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
+          <div class="light"></div>
             </div>
           </div>
         </swiper-slide>
@@ -68,6 +79,7 @@ const modules = [Pagination, Autoplay];
                 alt="slide1"
               />
               <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
+          <div class="light"></div>
             </div>
             <div class="swiper_item_title bottom font-['Noto_Sans_TC',serif]">北環道路</div>
           </div>
@@ -82,7 +94,49 @@ const modules = [Pagination, Autoplay];
                 alt="slide1"
               />
               <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
+          <div class="light"></div>
             </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide v-if="isMobile">
+          <div class="swiper_item">
+            <div class="swiper_item_img bottom">
+              <img
+                src="./s4/pic01.webp"
+                alt="slide1"
+              />
+              <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
+          <div class="light"></div>
+            </div>
+            <div class="swiper_item_title bottom font-['Noto_Sans_TC',serif]">台南火車站</div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide v-if="isMobile">
+          <div class="swiper_item">
+            <div class="swiper_item_title font-['Noto_Sans_TC',serif]">北環道路</div>
+            <div class="swiper_item_img">
+              <img
+                src="./s4/pic02.webp"
+                alt="slide1"
+              />
+              <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
+          <div class="light"></div>
+            </div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide  v-if="isMobile">
+          <div class="swiper_item">
+            <div class="swiper_item_img bottom">
+              <img
+                src="./s4/pic03.webp"
+                alt="slide1"
+              />
+              <p class="font-['Noto_Sans_TC',serif]">實景圖</p>
+          <div class="light"></div>
+            </div>
+            <div class="swiper_item_title bottom font-['Noto_Sans_TC',serif]">國道1號</div>
           </div>
         </swiper-slide>
       </swiper>
@@ -163,7 +217,7 @@ const modules = [Pagination, Autoplay];
       }
       p {
         color: #fff;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 1.6;
 
         text-align: center;
@@ -239,6 +293,20 @@ const modules = [Pagination, Autoplay];
             }
           }
         }
+          .light{
+    position: absolute;
+    height: 2em;
+    width: 90%;
+    bottom: -1em;left:0;
+   // z-index: 5;
+    background: 
+     radial-gradient(8% 5% at 50% 50%, #FFF 0%, #FFF0 100%),
+     radial-gradient(5% 10% at 50% 50%, #FFFc 0%, #FFF0 100%),
+     radial-gradient(15% 15% at 50% 50%, #FFFc 0%, #FFF0 100%),
+     radial-gradient(15% 25% at 50% 50%, #17dcffcc 0%, #FFF0 100%),
+    radial-gradient(20% 50% at 50% 50%, #17dcff66 0%, #FFF0 100%),
+    radial-gradient(50% 3% at 50% 50%, #17dcff 0%, #FFF0 100%);
+  }
         .swiper_item_img {
           position: relative;
           img {
@@ -263,19 +331,6 @@ const modules = [Pagination, Autoplay];
             }
           }
 
-          &::after {
-            content: '';
-            position: absolute;
-
-            background-image: url(./s4/light.png);
-            background-size: cover;
-            @media (min-width: 769px) {
-              width: 90%;
-              height: 90%;
-              bottom: -31%;
-              left: -12%;
-            }
-          }
           &.bottom {
             margin-top: sizem(50);
             @media (min-width: 769px) {
@@ -288,6 +343,8 @@ const modules = [Pagination, Autoplay];
                 left: -10%;
               }
             }
+            .light{
+    top: -1em;}
           }
         }
       }

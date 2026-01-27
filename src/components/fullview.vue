@@ -47,10 +47,11 @@
             pointer-events: none;
             opacity: 1;
             transition: all 1s;
-            background-color: rgba($color: #008DD5, $alpha: 0.5);
+            background: linear-gradient(to top, #2d9cd799 30%, #2d9cd700 100%);
 
             img {
                 height: 47px;
+        margin-top: 40vw;
             }
 
             &.hide {

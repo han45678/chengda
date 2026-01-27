@@ -4,25 +4,41 @@
     id="s3"
   >
     <div class="text font-['Noto_Sans_TC',serif]">
-      <div class="pic">
+      <div class="pic" data-aos="fade-up" data-aos-delay="0">
         <img
-        data-aos="fade-up"
+       
           src="./s3/pic.jpg"
           alt="pic"
-        />
+        /><div class="caption">台南車站3D情境示意圖
+<span>圖/臺南市政府都市發展局</span></div>
       </div>
       <img
-      data-aos="fade-up"
+      data-aos="fade-up" data-aos-delay="200"
         src="./s3/t1.svg"
         alt="title"
       />
-      <p data-aos="fade-up">
+      <p data-aos="fade-up" data-aos-delay="400" v-if="isMobile">
+        台南門戶計畫因半導體及世界AI巨擘擴大投資<br />
+        台南而生，台南車站4站距離可抵南科與高鐵<br />
+        透過交通轉運與科技發展緊密串連。
+      </p>
+      <p data-aos="fade-up" data-aos-delay="400" v-else>
         台南門戶計畫因半導體及世界AI巨擘擴大投資台南而生，台南車站4站距離可抵南科與高鐵，透過交通轉運與科技發展緊密串連。
       </p>
-      <p data-aos="fade-up">
+      <p data-aos="fade-up" data-aos-delay="600" v-if="isMobile">
+        台南門戶計畫主要結合了鐵路地下化、車站TOD<br />
+        再造計畫、三座商業大樓(8萬坪招商面積)<br />
+        綠園道、並增設2站地下化車站(林森站、南台南)<br />
+        消除地面鐵路對都市發展的阻礙，並配合都市更新<br />
+        打造現代化的交通樞紐，國際級CBD。
+      </p>
+      <p data-aos="fade-up" data-aos-delay="600" v-else>
         台南門戶計畫主要結合了鐵路地下化、車站TOD再造計畫、三座商業大樓(8萬坪招商面積)、綠園道、並增設2站地下化車站(林森站、南台南)，消除地面鐵路對都市發展的阻礙，並配合都市更新，打造現代化的交通樞紐，國際級CBD。
       </p>
-      <p class="highlight" data-aos="fade-up">
+      <p class="highlight" data-aos="fade-up" data-aos-delay="800" v-if="isMobile">
+        「成大之森」緊鄰台南門戶計畫核心<br />絕對是您置產投資致富的關鍵標的！
+      </p>
+      <p class="highlight" data-aos="fade-up" data-aos-delay="800" v-else>
         「成大之森」緊鄰台南門戶計畫核心，絕對是您置產投資致富的關鍵標的！
       </p>
     </div>
@@ -35,10 +51,10 @@
       />
     </div>
 
-    <!-- <div class="caption">
+    <!-- --><div class="caption">
       台南車站3D情境示意圖
       <span>圖/臺南市政府都市發展局</span>
-    </div> -->
+    </div> 
   </article>
 </template>
 
@@ -49,14 +65,14 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #EFEFEF;
 
   // --- 手機版優先 (Base) ---
-  height: auto;
-  min-height: 100vh;
+  height: sizem(770);
 
   // --- 電腦版 (Desktop) ---
   @media (min-width: 769px) {
+  background-color: #fff;
     height: auto; // 或依需求改為 100%
     min-height: auto; // 重置最小高度，依內容撐開
   }
@@ -76,7 +92,8 @@
       @media (max-width: 768px) {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: -6%;
+      width: 110%;
       }
       @media (min-width: 769px) {
         height: 100%;
@@ -88,6 +105,7 @@
 
   .pic {
     width: sizem(240);
+    position: relative;
     @media (min-width: 769px) {
       width: size(480);
     }
@@ -109,12 +127,6 @@
     // --- 手機版優先 (Base) ---
     padding-top: sizem(60);
     padding-bottom: sizem(200);
-    // 手機版背景 (底部較深)
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.5) 100%
-    );
 
     // --- 電腦版 (Desktop) ---
     @media (min-width: 769px) {
@@ -140,7 +152,7 @@
       margin-top: sizem(30);
       // --- 電腦版 (Desktop) ---
       @media (min-width: 769px) {
-        height: size(60);
+        height: size(46);
         margin-top: size(55);
         margin-bottom: size(40);
       }
@@ -149,15 +161,15 @@
     // 段落樣式
     p {
       text-align: center;
-      font-weight: 500;
+      font-weight: 400;
       color: #262626;
 
       // --- 手機版優先 (Base) ---
-      font-size: sizem(14);
+      font-size: sizem(13);
       line-height: 1.8;
       margin-bottom: sizem(13);
       width: sizem(300);
-      letter-spacing: sizem(2); // 假設手機版也需要字距，若不用可設為 normal
+      letter-spacing: .04em; // 假設手機版也需要字距，若不用可設為 normal
 
       // --- 電腦版 (Desktop) ---
       @media (min-width: 769px) {
@@ -166,7 +178,7 @@
         max-width: size(750);
         margin-bottom: size(20);
         padding: 0 size(20);
-        letter-spacing: size(1.26);
+        letter-spacing: .06em;
       }
 
       // 3. 垂直分隔線
@@ -213,6 +225,7 @@
         }
       }
     }
+    /*
     @media (max-width: 768px) {
       &::before {
         content: '';
@@ -229,52 +242,32 @@
         left: 0;
       }
     }
+      */
   }
 
-  // 3. 右下角 Caption
+
   .caption {
-    z-index: 3;
-    font-weight: 500;
-
-    // --- 手機版優先 (Base) ---
-    // 手機版是相對定位，在內容下方
-    position: relative;
-    bottom: auto;
-    right: auto;
-    padding: sizem(20);
-    text-align: center;
-    color: #666;
-    text-shadow: none;
-    font-size: sizem(14);
-    letter-spacing: sizem(1.5);
-
-    span {
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    color: #fff;
+    text-align: right;
+      font-size: sizem(10);
+      z-index: 3;
+    span{
       display: block;
-      font-weight: 400;
-      opacity: 0.9;
-      // Mobile
-      font-size: sizem(12);
-      margin-top: sizem(8);
+      font-size: .6em;
     }
-
-    // --- 電腦版 (Desktop) ---
-    @media (min-width: 769px) {
-      // 電腦版改為絕對定位，壓在背景上
-      position: absolute;
-      bottom: size(40);
-      right: size(50);
-      padding: 0; // 重置 padding
-      text-align: right;
-      color: #fff;
-      text-shadow: size(1) size(1) size(3) rgba(0, 0, 0, 0.5);
-      font-size: size(14);
-      letter-spacing: size(1.5);
-
-      span {
-        font-size: size(12);
-        margin-top: size(8);
-      }
+    @media (min-width: 768px) {
+      font-size: size(15);
     }
   }
 }
 </style>
+<script setup>
+import { computed, getCurrentInstance } from 'vue';
+const globals = getCurrentInstance().appContext.config.globalProperties;
+
+const isMobile = computed(() => globals.$isMobile());
+
+</script>

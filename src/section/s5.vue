@@ -1,4 +1,8 @@
 <script setup>
+import { computed, getCurrentInstance } from 'vue';
+const globals = getCurrentInstance().appContext.config.globalProperties;
+
+const isMobile = computed(() => globals.$isMobile());
 </script>
 
 <template>
@@ -17,48 +21,60 @@
           />
           <span class="line-deco" data-aos="fade-up"></span>
         </div>
-        <p class="text-desc font-['Noto_Sans_TC',serif]" data-aos="fade-up">
+        <p class="text-desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" v-if="isMobile">
+          「成大之森」位居台南繁華核心，十幾分鐘車程內<br>盡享台南便利商圈，7大百貨、4大夜市齊聚<br>繽紛百匯、餐飲、時尚、娛樂一次滿足<br>布局「成大之森」讓您輕鬆享受<br>舒適與未來增值生活！
+        </p>
+        <p class="text-desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" v-else>
           「成大之森」位居台南繁華核心，十幾分鐘車程內盡享台南便利商圈，7大百貨、4大夜市齊聚，繽紛百匯、餐飲、時尚、娛樂一次滿足，布局「成大之森」讓您輕鬆享受舒適與未來增值生活！
         </p>
       </div>
 
-      <div class="box-img item-1" data-aos="fade-up">
+      <div class="box-img item-1" data-aos="fade-up" data-aos-delay="200">
         <div class="img-wrap">
           <img
             src="./s5/pic01.jpg"
             alt="新光三越小北門店"
           />
         </div>
+          <div class="light"></div>
         <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>新光三越小北門店</div>
       </div>
 
-      <div class="box-img item-2">
+      <div class="box-img item-2" data-aos="fade-up" data-aos-delay="200">
         <div class="img-wrap">
           <img
             src="./s5/pic02.jpg"
             alt="南紡購物中心"
           />
         </div>
+          <div class="light"></div>
         <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>南紡購物中心</div>
       </div>
 
-      <div class="box-img item-3">
+      <div class="box-img item-3" data-aos="fade-up" data-aos-delay="200">
         <div class="img-wrap">
           <img
             src="./s5/pic03.jpg"
             alt="台南香格里拉&大遠百"
           />
         </div>
+          <div class="light"></div>
+          <div class="light2"></div>
         <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>台南香格里拉&大遠百</div>
       </div>
 
-      <div class="box-img item-4">
+      <div class="box-img item-4" data-aos="fade-up" data-aos-delay="200">
         <div class="img-wrap">
-          <img
+          <img v-if="isMobile"
+            src="./s5/pic04m.jpg"
+            alt="花園夜市"
+          />
+          <img v-else
             src="./s5/pic04.jpg"
             alt="花園夜市"
           />
         </div>
+          <div class="light"></div>
         <div class="caption font-['Noto_Sans_TC',serif]"><span class="bar"></span>花園夜市</div>
       </div>
     </div>
@@ -97,7 +113,7 @@ $color-bar: #3baee3;
     display: grid;
 
     // --- 手機版 Grid (使用 sizem) ---
-    gap: sizem(20);
+    gap: sizem(8);
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       'txt txt'
@@ -147,6 +163,7 @@ $color-bar: #3baee3;
     // 電腦版間距重設
     margin-bottom: 0;
     padding-left: size(40);
+    padding-right: size(40);
   }
 
   .text-header {
@@ -186,15 +203,15 @@ $color-bar: #3baee3;
   .text-desc {
     color: #fff;
     line-height: 1.6;
-    font-weight: 500;
+    font-weight: 400;
     text-align: center;
 
-    font-size: sizem(12);
+    font-size: sizem(13);
 
     @media (min-width: 768px) {
-      text-align: left;
+      text-align: justify;
       font-size: size(18);
-      letter-spacing: size(1.8) ;
+      letter-spacing: 0.1em;
     }
   }
 }
@@ -203,6 +220,11 @@ $color-bar: #3baee3;
 .box-img {
   display: flex;
   flex-direction: column;
+  position: relative;
+    font-size:sizem(15);
+    @media (min-width: 768px) {
+    font-size:size(20);
+    }
 
   .img-wrap {
     width: 100%;
@@ -218,6 +240,28 @@ $color-bar: #3baee3;
       transition: transform 0.6s ease;
     }
   }
+  .light {
+    position: absolute;
+    width:2em;
+
+   // z-index: 5;
+    background: radial-gradient(3% 50% at 50% 50%, #FFF 0%, #FFF0 100%),
+    radial-gradient(50% 20% at 50% 50%, #FFF3 0%, #FFF0 100%),
+     radial-gradient(25% 15% at 50% 50%, #FFF2 0%, #FFF0 100%),
+     radial-gradient(10% 15% at 50% 50%, #FFF 0%, #FFF0 100%);
+
+
+  }
+  .light2 {
+    position: absolute;
+   // z-index: 5;
+    background: radial-gradient(50% 3% at 50% 50%, #FFF 0%, #FFF0 100%),
+    radial-gradient(20% 50% at 50% 50%, #FFF2 0%, #FFF0 100%),
+     radial-gradient(15% 25% at 50% 50%, #FFF2 0%, #FFF0 100%),
+     radial-gradient(15% 10% at 50% 50%, #FFF 0%, #FFF0 100%);
+
+
+  }
 
   &:hover .img-wrap img {
     transform: scale(1.1);
@@ -230,13 +274,13 @@ $color-bar: #3baee3;
     width: 100%; // [新增] 確保容器本身是滿版
 
     // 手機版文字與間距
-    margin-top: sizem(10);
+    margin-top: sizem(5);
     font-size: sizem(10);
 
     // 電腦版文字與間距
     @media (min-width: 768px) {
       font-size: size(18);
-      margin-top: size(15);
+      margin-top: size(5);
     }
 
     .bar {
@@ -273,15 +317,38 @@ $color-bar: #3baee3;
 // 3. 各個 Grid Area 指定
 .item-1 {
   grid-area: i1;
+  .light{
+    height: 90%;
+    top: 0;right:-1em;}
 }
 .item-2 {
   grid-area: i2;
+  .light{
+    height: 90%;
+    top: 0;left:-1em;}
 }
 .item-3 {
   grid-area: i3;
+  @media (max-width: 768px) {
+   width: sizem(185);
+  }
+  .light{
+    height: 90%;
+    top: 0;right:-1em;}
+  .light2{
+    height: 2em;
+    width: 90%;
+    top: -1em;left:0;}
 }
 .item-4 {
   grid-area: i4;
+  .light{
+    height: 100%;
+    top: 0;right:-1em;}
+  @media (max-width: 768px) {
+    height: sizem(160);
+  }
+
 }
 
 @keyframes sway {

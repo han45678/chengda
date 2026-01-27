@@ -1,55 +1,37 @@
 <template>
   <div ref="gtmNoScript" />
   <!--loading-->
-  <div
-    v-bind:class="{
-      'opacity-0': !isLoading,
-      'pointer-events-none': !isLoading
-    }"
-    class="transition-all duration-500 flex-col flex items-center justify-center fixed w-screen h-screen top-0 left-0 bg-white z-[10000]"
-  >
-    <img
-      class="w-32"
-      src="//h35.banner.tw/img//loading_w.gif"
-      alt="loading"
-      srcset=""
-    />
+  <div v-bind:class="{
+    'opacity-0': !isLoading,
+    'pointer-events-none': !isLoading
+  }"
+    class="transition-all duration-500 flex-col flex items-center justify-center fixed w-screen h-screen top-0 left-0 bg-white z-[10000]">
+    <img class="w-32" src="//h35.banner.tw/img//loading_w.gif" alt="loading" srcset="" />
   </div>
   <!--loading end-->
   <!--
   'Noto_Serif_TC',serif
   'Noto_Sans_TC',sans-serif
   -->
-
-  <div
-    class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#ddd] text-[#3E3A39]"
-  >
+  <Nav v-if="info.navList.length > 0" />
+  <div class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#ddd] text-[#3E3A39]">
     <h1 class="absolute opacity-0 pointer-events-none">{{ info.caseName }}</h1>
     <div class="bgs12">
-      <div
-        class="bg"
-        v-if="isMobile"
-      >
-        <img src="@/section/s1/bgm.jpg" /><img src="@/section/s1/bgm.jpg" /><img
-          src="@/section/s1/bgm.jpg"
-        /><img src="@/section/s1/bgm.jpg" />
+      <div class="bg" v-if="isMobile">
+        <img src="@/section/s1/bgm.jpg" /><img src="@/section/s1/bgm.jpg" /><img src="@/section/s1/bgm.jpg" /><img
+          src="@/section/s1/bgm.jpg" />
       </div>
-      <div
-        class="bg"
-        v-else
-      >
-        <img src="@/section/s1/bg.webp" /><img src="@/section/s1/bg.webp" /><img
-          src="@/section/s1/bg.webp"
-        /><img src="@/section/s1/bg.webp" />
+      <div class="bg" v-else>
+        <img src="@/section/s1/bg.webp" /><img src="@/section/s1/bg.webp" /><img src="@/section/s1/bg.webp" /><img
+          src="@/section/s1/bg.webp" />
       </div>
       <S1 />
       <S2 />
-    </div>
-
-    <S3 />
-    <div class="s3_s4_bg">
-      <S4 />
-      <S5 />
+      <S3 />
+      <div class="s3_s4_bg">
+        <S4 />
+        <S5 />
+      </div>
     </div>
     <S6 />
     <S7 />
@@ -88,6 +70,7 @@
 .fade-leave-active {
   transition: opacity 0.2s;
 }
+
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
@@ -99,24 +82,33 @@ img {
   height: unset;
   margin: 0 auto;
 }
+
 .bgs12 {
   position: relative;
   overflow: hidden;
 }
+
 .bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
   animation: an 70s linear reverse infinite;
   transform: translateY(-25%);
+
   @media screen and (min-width: 768px) {
     animation: an 60s linear reverse infinite;
   }
+
+  img {
+    width: 100%;
+  }
 }
+
 .home {
   position: relative;
+
   &::before {
     content: '';
     display: block;
@@ -128,12 +120,14 @@ img {
     right: 0;
     background: url('@/section/s1/obgm.jpg') center center;
     background-size: sizem(375) auto;
+
     @media screen and (min-width: 768px) {
-      background-image: url('@/section/s1/obg.webp');
+      background-image: url('@/section/s1/obg.jpg');
       background-size: 100% auto;
     }
   }
 }
+
 // 字體
 /*
 @font-face {
@@ -149,6 +143,7 @@ import info from '@/info';
 // import S2v from "@/section/s2v.vue"
 // import S11 from "@/section/s11.vue"
 
+import Nav from "@/layout/navbar.vue";
 import S1 from '@/section/s1.vue';
 import S2 from '@/section/s2.vue';
 import S3 from '@/section/s3.vue';

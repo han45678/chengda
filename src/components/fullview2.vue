@@ -10,7 +10,7 @@
       srcset=""
     />
     <div
-      class="mask"
+      class="mask2"
       v-bind:class="{ hide: swiped }"
       v-if="$isMobile()"
     >
@@ -49,7 +49,7 @@
       height: 100%;
     }
 
-    .mask {
+    .mask2 {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -62,10 +62,11 @@
       pointer-events: none;
       opacity: 1;
       transition: all 1s;
-      background-color: rgba($color: #008dd5, $alpha: 0.5);
+      background-color: rgba($color: #3690FF, $alpha: 0.5);
 
       img {
         height: 47px;
+        margin-top: 60vw;
       }
 
       &.hide {
@@ -82,7 +83,7 @@ import { onMounted, ref, computed, getCurrentInstance } from 'vue';
 const viewbox = ref();
 const viewImg = ref();
 const swiped = ref(false);
-const offsetRatio = 1.67;
+const offsetRatio = 1.17;
 
 const globals = getCurrentInstance().appContext.config.globalProperties;
 const isMobile = computed(() => globals.$isMobile());

@@ -1,10 +1,5 @@
 <script setup>
-import { ref, computed, getCurrentInstance } from 'vue'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation } from 'swiper'
-import 'swiper/css'
-
-// 圖片資料（你原本的 parks 直接沿用）
+import { ref, computed, getCurrentInstance } from 'vue';
 import pic01 from './s6/pic01.jpg';
 import pic02 from './s6/pic02.jpg';
 import pic03 from './s6/pic03.jpg';
@@ -46,97 +41,125 @@ const parks = [
     text: '小東公園實景圖'
   }
 ];
-const activeIndex = ref(0)
-const swiperRef = ref(null)
 
-const onSlideChange = (swiper) => {
-  activeIndex.value = swiper.realIndex
-}
+const activeIndex = ref(0);
+
+// 切換 Tab
 const setTab = (index) => {
-  swiperRef.value?.slideToLoop(index)
-}
+  activeIndex.value = index;
+};
 
-const prev = () => {
-  swiperRef.value?.slidePrev()
-}
+// 上一張
+const prevTab = () => {
+  activeIndex.value = (activeIndex.value - 1 + parks.length) % parks.length;
+};
 
-const next = () => {
-  swiperRef.value?.slideNext()
-}
+// 下一張
+const nextTab = () => {
+  activeIndex.value = (activeIndex.value + 1) % parks.length;
+};
 
-const globals = getCurrentInstance().appContext.config.globalProperties
-const isMobile = computed(() => globals.$isMobile())
+// 取得當前顯示的公園資料
+const currentPark = computed(() => parks[activeIndex.value]);
+
+const globals = getCurrentInstance().appContext.config.globalProperties;
+
+const isMobile = computed(() => globals.$isMobile());
 </script>
 
-
-
 <template>
-  <article class="s6" id="s6">
+  <article
+    class="s6"
+    id="s6"
+  >
     <div class="wrapper">
       <div class="top-section">
         <div class="text-group">
-          <img class="title-img pc" src="./s6/title.svg" alt="title" data-aos="fade-up" />
-          <img class="title-img m" src="./s6/title_m.svg" alt="title" data-aos="fade-up" />
-          <span class="line" alt="title" data-aos="fade-up" data-aos-delay="200"></span>
-          <p class="desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="400" v-if="isMobile">
+          <img
+            class="title-img pc"
+            src="./s6/title.svg"
+            alt="title"
+            data-aos="fade-up"
+          />
+          <img
+            class="title-img m"
+            src="./s6/title_m.svg"
+            alt="title"
+            data-aos="fade-up"
+          />
+          <span class="line"></span>
+          <p class="desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" v-if="isMobile">
             成功大學第一排，無可取代的位置<br />
             開窗坐享25萬坪頂尖人文綠色流域<br />
             後擁台南公園百年翠綠<br />
             集古蹟、自然、文化、歷史於一身<br />
             4萬餘坪的城市森林，成大之森獨擁綠色奢華<br />獻給品味不凡的靈魂。
           </p>
-          <p class="desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="400" v-else>
+          <p class="desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" v-else>
             成功大學第一排，無可取代的位置，開窗坐享25萬坪頂尖人文綠色流域，後擁台南公園百年翠綠，集古蹟、自然、文化、歷史於一身4萬餘坪的城市森林，成大之森獨擁綠色奢華，獻給品味不凡的靈魂。
           </p>
         </div>
 
-        <div class="tab-buttons">
-  <button
-    v-for="(park, index) in parks"
-    :key="park.id"
-    :class="{ active: activeIndex === index }"
-    @click="setTab(index)"
-  >
-    {{ park.name }}
-  </button>
-</div>
-      </div>
-      <div class="gallery-container">
-        <button class="nav-btn prev" @click="prev">
-          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="17" viewBox="-6 0 17 17" fill="none">
-            <path d="M0.246276 15.8394L7.86694 8.21869L0.246277 0.235128" stroke="#251D1B" stroke-width="0.680653" />
-          </svg></button>
-        <button class="nav-btn next" @click="next">
-          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="17" viewBox="-6 0 17 17" fill="none">
-            <path d="M0.246276 15.8394L7.86694 8.21869L0.246277 0.235128" stroke="#251D1B" stroke-width="0.680653" />
-          </svg></button>
-
-        <swiper 
-  @swiper="(s) => (swiperRef = s)"
-  @slideChange="onSlideChange"
-  :modules="modules"
-  :slides-per-view="1"
-  :space-between="15"
-  :loop="true"
-  :autoplay="{
-    delay: 3500,
-    disableOnInteraction: false
-  }"
-  class="s6-swiper">
-          <swiper-slide v-for="(park, index) in parks" :key="park.id">
-            <div class="img-box">
-              <img class="m" :src="park.img_m" />
-              <img class="pc" :src="park.img_pc" />
-              <p>{{ park.text }}</p>
-            </div>
-          </swiper-slide>
-        </swiper>
+        <div class="tab-buttons" data-aos="fade-up">
+          <button
+            v-for="(park, index) in parks"
+            :key="park.id"
+            :class="{ active: activeIndex === index }"
+            @click="setTab(index)"
+          >
+            {{ park.name }}
+          </button>
+        </div>
       </div>
 
+      <div class="gallery-container" data-aos="fade-up">
+        <button
+          class="nav-btn prev"
+          @click="prevTab"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="17" viewBox="0 0 9 17" fill="none">
+            <path d="M0.246276 15.8394L7.86694 8.21869L0.246277 0.235128" stroke="#251D1B" stroke-width="0.680653"/>
+          </svg>
+        </button>
+        <button
+          class="nav-btn next"
+          @click="nextTab"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="17" viewBox="0 0 9 17" fill="none">
+            <path d="M0.246276 15.8394L7.86694 8.21869L0.246277 0.235128" stroke="#251D1B" stroke-width="0.680653"/>
+          </svg>
+        </button>
 
+        <transition
+          name="fade"
+          mode="out-in"
+        >
+          <div
+            class="img-box"
+            :key="activeIndex"
+          >
+            <img
+              class="m"
+              :src="currentPark.img_m"
+              :alt="currentPark.name"
+            />
+            <img
+              class="pc"
+              :src="currentPark.img_pc"
+              :alt="currentPark.name"
+            />
+
+            <p>{{ currentPark.text }}</p>
+          </div>
+        </transition>
+      </div>
     </div>
 
-    <img class="leaf leaf2" src="./s6/leaf2.png" alt="leaf" />
+    <img
+      class="leaf leaf2"
+      src="./s6/leaf2.png"
+      alt="leaf"
+    />
   </article>
 </template>
 
@@ -162,7 +185,7 @@ $color-text: #444;
 
   // 電腦版 Padding
   @media (min-width: 768px) {
-    background-image: url(./s6/bg.jpg); // 模擬紙質紋理
+  background-image: url(./s6/bg.jpg); // 模擬紙質紋理
     padding: size(185) 0 size(80) 0;
   }
 
@@ -178,12 +201,10 @@ $color-text: #444;
   .leaf {
     position: absolute;
     animation: sway 15s ease-in-out infinite;
-
     &.leaf2 {
       width: sizem(75);
       top: sizem(15);
       right: sizem(-20);
-
       @media (min-width: 768px) {
         width: size(220);
         top: size(-125);
@@ -199,7 +220,7 @@ $color-text: #444;
   flex-direction: column;
   margin-bottom: sizem(30);
   padding-left: sizem(15);
-  padding-right: sizem(15);
+    padding-right: sizem(15);
 
   @media (min-width: 768px) {
     flex-direction: row; // 電腦版並排
@@ -230,15 +251,12 @@ $color-text: #444;
 
       &.pc {
         display: none;
-
         @media (min-width: 768px) {
           display: block;
         }
       }
-
       &.m {
         display: block;
-
         @media (min-width: 768px) {
           display: none;
         }
@@ -345,11 +363,9 @@ $color-text: #444;
     // 手機版箭頭大小
     width: sizem(24);
     height: sizem(24);
-
     &.prev {
       left: sizem(10);
     }
-
     &.next {
       right: sizem(10);
     }
@@ -358,11 +374,9 @@ $color-text: #444;
     @media (min-width: 768px) {
       width: size(50);
       height: size(50);
-
       &.prev {
         left: size(20);
       }
-
       &.next {
         right: size(20);
       }
@@ -373,13 +387,13 @@ $color-text: #444;
     }
 
     svg {
-      width: sizem(17);
+      width: sizem(8);
       height: sizem(16);
       stroke: #251D1B;
       stroke-width: 0.681px;
 
       @media (min-width: 768px) {
-        width: size(35);
+        width: size(16);
         height: size(35);
       }
     }
@@ -406,7 +420,6 @@ $color-text: #444;
 
     &.m {
       display: block;
-
       @media (min-width: 768px) {
         display: none;
       }
@@ -414,7 +427,6 @@ $color-text: #444;
 
     &.pc {
       display: none;
-
       @media (min-width: 768px) {
         display: block;
       }
@@ -430,7 +442,6 @@ $color-text: #444;
     letter-spacing: sizem(0.8);
     right: sizem(10);
     bottom: sizem(10);
-
     @media (min-width: 768px) {
       font-size: size(14);
       letter-spacing: size(1.4);
@@ -455,11 +466,9 @@ $color-text: #444;
   0% {
     transform: rotate(-5deg);
   }
-
   50% {
     transform: rotate(5deg);
   }
-
   100% {
     transform: rotate(-5deg);
   }
