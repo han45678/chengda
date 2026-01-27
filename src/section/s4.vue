@@ -47,6 +47,14 @@ const isMobile = computed(() => globals.$isMobile());
         :space-between="20"
         :centered-slides="true"
         :loop="isMobile"
+        :autoplay="
+          isMobile
+            ? {
+                delay: 3000,
+                disableOnInteraction: false
+              }
+            : false
+        "
         :breakpoints="{
           768: {
             slidesPerView: 3,

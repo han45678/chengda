@@ -123,10 +123,10 @@ const isMobile = computed(() => globals.$isMobile())
     disableOnInteraction: false
   }"
   class="s6-swiper">
-          <swiper-slide v-for="(park, index) in parks" :key="park.id">
+          <swiper-slide v-for="(park) in parks" :key="park.id">
             <div class="img-box">
-              <img class="m" :src="park.img_m" />
-              <img class="pc" :src="park.img_pc" />
+              <img :src="park.img_m" v-if="isMobile" />
+              <img :src="park.img_pc" v-else />
               <p>{{ park.text }}</p>
             </div>
           </swiper-slide>
