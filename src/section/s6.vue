@@ -83,7 +83,7 @@ const isMobile = computed(() => globals.$isMobile())
             開窗坐享25萬坪頂尖人文綠色流域<br />
             後擁台南公園百年翠綠<br />
             集古蹟、自然、文化、歷史於一身<br />
-            4萬餘坪的城市森林，成大之森獨擁綠色奢華<br />獻給品味不凡的靈魂。
+            4萬餘坪的城市森林，成大之森獨擁綠色奢華<br />獻給品味不凡的靈魂
           </p>
           <p class="desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" data-aos-delay="400" v-else>
             成功大學第一排，無可取代的位置，開窗坐享25萬坪頂尖人文綠色流域，後擁台南公園百年翠綠，集古蹟、自然、文化、歷史於一身4萬餘坪的城市森林，成大之森獨擁綠色奢華，獻給品味不凡的靈魂。
@@ -118,10 +118,6 @@ const isMobile = computed(() => globals.$isMobile())
   :slides-per-view="1"
   :space-between="15"
   :loop="true"
-  :autoplay="{
-    delay: 3500,
-    disableOnInteraction: false
-  }"
   class="s6-swiper">
           <swiper-slide v-for="(park) in parks" :key="park.id">
             <div class="img-box">

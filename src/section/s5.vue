@@ -22,7 +22,7 @@ const isMobile = computed(() => globals.$isMobile());
           <span class="line-deco" data-aos="fade-up"></span>
         </div>
         <p class="text-desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" v-if="isMobile">
-          「成大之森」位居台南繁華核心，十幾分鐘車程內<br>盡享台南便利商圈，7大百貨、4大夜市齊聚<br>繽紛百匯、餐飲、時尚、娛樂一次滿足<br>布局「成大之森」讓您輕鬆享受<br>舒適與未來增值生活！
+          「成大之森」位居台南繁華核心，十幾分鐘車程內<br>盡享台南便利商圈，7大百貨、4大夜市齊聚<br>繽紛百匯、餐飲、時尚、娛樂一次滿足<br>布局「成大之森」讓您輕鬆享受<br>舒適與未來增值生活
         </p>
         <p class="text-desc font-['Noto_Sans_TC',serif]" data-aos="fade-up" v-else>
           「成大之森」位居台南繁華核心，十幾分鐘車程內盡享台南便利商圈，7大百貨、4大夜市齊聚，繽紛百匯、餐飲、時尚、娛樂一次滿足，布局「成大之森」讓您輕鬆享受舒適與未來增值生活！

@@ -35,7 +35,7 @@
   > img {
     height: 100%;
     max-width: unset;
-    background: url('@/section/s3/map.webp') 50%;
+  //  background: url('@/section/s3/map.webp') 50%;
     background-size: 100% auto;
   }
 }
