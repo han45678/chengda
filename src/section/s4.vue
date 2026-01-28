@@ -22,10 +22,10 @@ const isMobile = computed(() => globals.$isMobile());
       </div>
       <div class="desc-text" data-aos="fade-up" data-aos-delay="0">
         <p class="font-['Noto_Sans_TC',serif]" v-if="isMobile">
-          位居台南市中心的革新，步行就到台南車站<br />四站就到南科，下樓就到捷運綠線G10預定站<br />約7分鐘直上北外環道，約15分接軌國道1號
+          位居台南市中心的核心，步行就到台南車站<br />四站就到南科，下樓就到捷運綠線G10預定站<br />約7分鐘直上北外環道，約15分接軌國道1號
         </p>
         <p class="font-['Noto_Sans_TC',serif]" v-else>
-          位居台南市中心的革新，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
+          位居台南市中心的核心，步行就到台南車站，四站就到南科，下樓就到捷運綠線G10預定站，約7分鐘直上北外環道，約15分接軌國道1號。
         </p>
       </div>
     </div>
