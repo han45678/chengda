@@ -42,7 +42,7 @@
 
 .s2 {
   background: #0b2a49;
-  background: linear-gradient(to top, #2d9cd7 53%, #0b2a49 100%);
+  background: linear-gradient(to top, #2d9cd7 53%, #0b1149 100%);
   width: 100%;
   position: relative;
   overflow: hidden;

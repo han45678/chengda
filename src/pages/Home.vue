@@ -22,8 +22,8 @@
           src="@/section/s1/bgm.jpg" />
       </div>
       <div class="bg" v-else>
-        <img src="@/section/s1/bg.webp" /><img src="@/section/s1/bg.webp" /><img src="@/section/s1/bg.webp" /><img
-          src="@/section/s1/bg.webp" />
+        <img src="@/section/s1/bg.jpg" /><img src="@/section/s1/bg.jpg" /><img src="@/section/s1/bg.webp" /><img
+          src="@/section/s1/bg.jpg" />
       </div>
       <S1 />
       <S2 />
